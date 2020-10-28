@@ -7,4 +7,4 @@
 
 [komentorivi.txt](laskarit/viikko1/komentorivi.txt)
 
-aslkdjfaök
+aslkdjfaök muuutos
