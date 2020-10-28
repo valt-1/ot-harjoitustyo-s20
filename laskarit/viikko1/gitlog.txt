@@ -1,0 +1,113 @@
+commit 667df51c6ca611d90f64d70d19d10fe4bd3abae5
+Author: Emma Valtonen <emma.valtonen@helsinki.fi>
+Date:   Wed Oct 28 17:21:47 2020 +0200
+
+    Delete and rename
+
+ tiedostoja/file1             | 1 -
+ tiedostoja/{file2 => file22} | 0
+ 2 files changed, 1 deletion(-)
+
+commit a025d24a0d865661bae44139c96ddfc48f1323ba
+Author: Emma Valtonen <emma.valtonen@helsinki.fi>
+Date:   Wed Oct 28 17:17:16 2020 +0200
+
+    Add tiedostoja
+
+ tiedostoja/file1 | 1 +
+ tiedostoja/file2 | 1 +
+ tiedostoja/file3 | 1 +
+ 3 files changed, 3 insertions(+)
+
+commit 74d6ac5f03bf09155f6935bd6dbc7063c2d800c3
+Author: Emma Valtonen <emma.valtonen@helsinki.fi>
+Date:   Wed Oct 28 16:30:54 2020 +0200
+
+    Modify text files
+
+ eka.txt    | 2 +-
+ kolmas.txt | 3 ++-
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+commit 1266064575599d8116ec60d9ed5c60c4175dfa2c
+Author: Emma Valtonen <emma.valtonen@helsinki.fi>
+Date:   Wed Oct 28 16:27:15 2020 +0200
+
+    Rename tiedosto.txt -> eka.txt
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit df34ae8656387f378b5ae8640e6014cfe2d1e4a3
+Author: Emma Valtonen <emma.valtonen@helsinki.fi>
+Date:   Wed Oct 28 16:22:24 2020 +0200
+
+    Delete toinen.txt
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit ab351da1f44958ad90b32c830801458570198738
+Author: Emma Valtonen <emma.valtonen@helsinki.fi>
+Date:   Wed Oct 28 16:20:32 2020 +0200
+
+    Modify tiedosto.txt
+
+ tiedosto.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit 8286ba5f1802c709c561d366c6d51cc80eefbc0f
+Author: Emma Valtonen <emma.valtonen@helsinki.fi>
+Date:   Wed Oct 28 16:19:35 2020 +0200
+
+    Modify tiedosto.txt
+
+ tiedosto.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 2c9216425b15009ad1b820f85269d274968cd748
+Author: Emma Valtonen <emma.valtonen@helsinki.fi>
+Date:   Wed Oct 28 16:02:16 2020 +0200
+
+    Add stuff
+
+ stuff/jotain.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit cae6662d7a209516e64435bc5e7297a59420e29f
+Author: Emma Valtonen <emma.valtonen@helsinki.fi>
+Date:   Wed Oct 28 15:56:47 2020 +0200
+
+    Modify toinen.txt and kolmas.txt
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit a607b385f31ca7d7594e427f09a8da0f349b2b14
+Author: Emma Valtonen <emma.valtonen@helsinki.fi>
+Date:   Wed Oct 28 15:55:06 2020 +0200
+
+    Create kolmas.txt
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit d35b2269e312131bd5dda515ce15379dd1af9bec
+Author: Emma Valtonen <emma.valtonen@helsinki.fi>
+Date:   Wed Oct 28 15:52:30 2020 +0200
+
+    Modify tiedosto.txt, create toinen.txt
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 9f1713667f6aac4c2ed06e4e15b73b13341968e5
+Author: Emma Valtonen <emma.valtonen@helsinki.fi>
+Date:   Wed Oct 28 15:49:43 2020 +0200
+
+    Create tiedosto.txt
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
