@@ -11,10 +11,12 @@ import static org.junit.Assert.*;
 public class KassapaateTest {
     
     Kassapaate kassa;
+    Maksukortti kortti;
     
     @Before
     public void setUp() {
         kassa = new Kassapaate();
+        kortti = new Maksukortti(1000);
     }
     
     @Test
@@ -46,7 +48,7 @@ public class KassapaateTest {
     }
     
     @Test
-    public void syoEdullisestiKasvattaaMyytyjaJosKateismaksuRiittava() {
+    public void syoEdullisestiLisaaMyytyjaJosKateismaksuRiittava() {
         kassa.syoEdullisesti(250);
         assertEquals(1, kassa.edullisiaLounaitaMyyty());
     }
@@ -82,7 +84,7 @@ public class KassapaateTest {
     }
 
     @Test
-    public void syoMaukkaastiKasvattaaMyytyjaJosKateismaksuRiittava() {
+    public void syoMaukkaastiLisaaMyytyjaJosKateismaksuRiittava() {
         kassa.syoMaukkaasti(500);
         assertEquals(1, kassa.maukkaitaLounaitaMyyty());
     }
@@ -102,5 +104,90 @@ public class KassapaateTest {
     public void syoMaukkaastiEiMuutaMyytyjaJosKateismaksuEiRiita() {
         kassa.syoMaukkaasti(200);
         assertEquals(0, kassa.maukkaitaLounaitaMyyty());
+    }
+    
+    // edullisten lounaiden korttiosto
+    
+    @Test
+    public void syoEdullisestiPalauttaaTrueJosKortinSaldoRiittaa() {
+        assertTrue(kassa.syoEdullisesti(kortti));
+    }
+    
+    @Test
+    public void syoEdullisestiLisaaMyytyjaJosKortinSaldoRiittaa() {
+        kassa.syoEdullisesti(kortti);
+        assertEquals(1, kassa.edullisiaLounaitaMyyty());
+    }
+    
+    @Test
+    public void syoEdullisestiEiLisaaMyytyjaJosKortinSaldoEiRiita() {
+        for (int i = 0; i < 5; i++) {
+            kassa.syoEdullisesti(kortti);
+        }
+        assertEquals(4, kassa.edullisiaLounaitaMyyty());
+        
+    }
+    
+    @Test
+    public void syoEdullisestiPalauttaaFalseJosKortinSaldoEiRiita() {
+        for (int i = 0; i < 4; i++) {
+            kassa.syoEdullisesti(kortti);
+        }
+        assertFalse(kassa.syoEdullisesti(kortti));
+    }
+    
+    @Test
+    public void syoEdullisestiKortillaEiMuutaKassanRahamaaraa() {
+        kassa.syoEdullisesti(kortti);
+        assertEquals(100000, kassa.kassassaRahaa());
+    }
+    
+    // maukkaiden lounaiden korttiosto
+    
+    @Test
+    public void syoMaukkaastiPalauttaaTrueJosKortinSaldoRiittaa() {
+        assertTrue(kassa.syoMaukkaasti(kortti));
+    }
+    
+    @Test
+    public void syoMaukkaastiLisaaMyytyjaJosKortinSaldoRiittaa() {
+        kassa.syoMaukkaasti(kortti);
+        assertEquals(1, kassa.maukkaitaLounaitaMyyty());
+    }
+    
+    @Test
+    public void syoMaukkaastiEiLisaaMyytyjaJosKortinSaldoEiRiita() {
+        for (int i = 0; i < 3; i++) {
+            kassa.syoMaukkaasti(kortti);
+        }
+        assertEquals(2, kassa.maukkaitaLounaitaMyyty());
+
+    }
+    
+    @Test
+    public void syoMaukkaastiPalauttaaFalseJosKortinSaldoEiRiita() {
+        kassa.syoMaukkaasti(kortti);
+        kassa.syoMaukkaasti(kortti);
+        assertFalse(kassa.syoMaukkaasti(kortti));
+    }
+    
+    @Test
+    public void syoMaukkaastiKortillaEiMuutaKassanRahamaaraa() {
+        kassa.syoMaukkaasti(kortti);
+        assertEquals(100000, kassa.kassassaRahaa());
+    }
+    
+    // kortin lataaminen
+    
+    @Test
+    public void lataaRahaaKortilleKasvattaaKassanRahamaaraaOikein() {
+        kassa.lataaRahaaKortille(kortti, 1000);
+        assertEquals(100000 + 1000, kassa.kassassaRahaa());
+    }
+    
+    @Test
+    public void lataaRahaaKortilleEiLataaNegatiivistaSummaa() {
+        kassa.lataaRahaaKortille(kortti, -1000);
+        assertEquals(1000, kortti.saldo());
     }
 }
