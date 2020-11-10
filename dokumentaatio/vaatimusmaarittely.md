@@ -4,7 +4,7 @@
 
 Sovellus on peli, jossa ruudun yläreunasta laskeutuu joukko vihamielisiä avaruusolioita ja ruudun alareunassa on pelaajan ohjaama lasertykki. Pelaajan on tarkoitus tuhota avaruusoliot ampumalla ennen kuin ne pääsevät ruudun alalaitaan. 
 
-Viholliset liikkuvat rivistönä edestakaisin ruudun vasemman ja oikean reunan välillä, ja aina jommankumman reunan saavuttaessaan vihollisjoukko laskeutuu alaspäin. Lisäksi viholliset laukovat ammuksia, joita pelaaja joutuu väistelemään. Jos avaruusolion ammus osuu laserykkiin, pelaaja menettää yhden elämän. Jos pelaajan ammus osuu avaruusolioon, olio katoaa ruudulta ja pelaaja saa pisteitä. 
+Viholliset liikkuvat rivistönä edestakaisin ruudun vasemman ja oikean reunan välillä, ja aina jommankumman reunan saavuttaessaan vihollisjoukko laskeutuu alaspäin. Lisäksi viholliset laukovat ammuksia, joita pelaaja joutuu väistelemään. Jos avaruusolion ammus osuu lasertykkiin, pelaaja menettää yhden elämän. Jos pelaajan ammus osuu avaruusolioon, olio katoaa ruudulta ja pelaaja saa pisteitä. 
 
 ## Toiminnallisuus
 
@@ -15,8 +15,10 @@ Viholliset liikkuvat rivistönä edestakaisin ruudun vasemman ja oikean reunan v
 ### Pelin aikana
 - käyttäjä voi liikuttaa lasertykkiä vasemmalle tai oikealle
 - käyttäjä voi ampua ylöspäin
+    - jos osuu avaruusolioon, olio katoaa ruudulta ja pelaaja saa pisteitä
 - käyttäjä näkee pelin aikana kertyneet pisteet ja hiscoren
 - käyttäjä näkee jäljellä olevat elämät
+    - jos avaruusolion ammus osuu lasertykkiin, pelaaja menettää elämän
 - käyttäjä voi lopettaa pelin kesken
 - käyttäjä voi pelata kunnes avaruusoliot saavuttavat ruudun alalaidan, elämät loppuvat tai kaikki avaruusoliot on tuhottu
 
