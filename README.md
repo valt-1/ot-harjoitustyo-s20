@@ -1,15 +1,29 @@
 # Ohjelmistotekniikka, harjoitustyö
 
-## Tehtävät
+## Dokumentaatio
 
-### Viikko 1
-[gitlog.txt](laskarit/viikko1/gitlog.txt)
+[Vaatimusmäärittely](dokumentaatio/vaatimusmaarittely.md)
 
-[komentorivi.txt](laskarit/viikko1/komentorivi.txt)
+[Työaikakirjanpito](dokumentaatio/tuntikirjanpito.md)
 
-### Viikko 2
-[testikattavuus](laskarit/viikko2/testikattavuus.png)
+## Komentorivitoiminnot
 
-[vaatimusmäärittely](dokumentaatio/vaatimusmaarittely.md)
+Ohjelman suorittaminen:
 
-[työaikakirjanpito](dokumentaatio/tuntikirjanpito.md)
+```
+mvn compile exec:java -Dexec.mainClass=spaceinvaders.Main
+```
+
+Testien suorittaminen:
+
+```
+mvn test
+```
+
+Testikattavuusraportin luominen:
+
+```
+mvn jacoco:report
+```
+
+Testikattavuusraportin tarkastelu: avaa selaimella tiedosto _target/site/jacoco/index.html_
