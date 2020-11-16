@@ -1,4 +1,4 @@
-package domain;
+package spaceinvaders.domain;
 
 import org.junit.After;
 import org.junit.AfterClass;
