@@ -15,7 +15,6 @@ public class SpaceInvadersUi extends Application {
         pane.setPrefSize(800, 600);
         
         LaserGun laserGun = new LaserGun();
-        laserGun.setLocation(400, 590);
         
         pane.getChildren().add(laserGun.getShape());
 
