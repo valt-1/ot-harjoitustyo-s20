@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import spaceinvaders.domain.Alien;
 import spaceinvaders.domain.Game;
 
 public class SpaceInvadersUi extends Application {
@@ -25,6 +26,9 @@ public class SpaceInvadersUi extends Application {
         pane.setPrefSize(game.getSizeX(), game.getSizeY());
 
         pane.getChildren().add(game.getLaserGun().getShape());
+        for (Alien alien : game.getAliens()) {
+            pane.getChildren().add(alien.getShape());
+        }
 
         Scene scene = new Scene(pane);
 
