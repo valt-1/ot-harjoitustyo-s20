@@ -17,8 +17,7 @@ public class LaserGunTest {
     
     @Before
     public void setUp() {
-        laserGun = new LaserGun();
-        laserGun.setLocation(startLocationX, startLocationY);
+        laserGun = new LaserGun(startLocationX, startLocationY);
     }
     
     @Test
