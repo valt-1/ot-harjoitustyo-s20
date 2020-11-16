@@ -22,11 +22,11 @@ public class SpaceInvadersUi extends Application {
         Scene scene = new Scene(pane);
         scene.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.LEFT) {
-                laserGun.setLocationX(laserGun.getLocationX() - 10);
+                laserGun.moveLeft();
             }
             
             if (event.getCode() == KeyCode.RIGHT) {
-                laserGun.setLocationX(laserGun.getLocationX() + 10);
+                laserGun.moveRight();
             }
         });
         

@@ -35,4 +35,12 @@ public class LaserGun {
     public double getLocationY() {
         return this.shape.getTranslateY();
     }
+    
+    public void moveLeft() {
+        this.setLocationX(this.getLocationX() - 10);
+    }
+    
+    public void moveRight() {
+        this.setLocationX(this.getLocationX() + 10);
+    }
 }
