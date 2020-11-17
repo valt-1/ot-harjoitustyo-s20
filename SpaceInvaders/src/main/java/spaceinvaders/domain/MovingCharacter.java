@@ -1,15 +1,18 @@
 package spaceinvaders.domain;
 
 import javafx.scene.shape.Polygon;
+import javafx.scene.shape.Shape;
 
 public class MovingCharacter {
     
     private Polygon shape;
+    private boolean alive;
     
     public MovingCharacter(Polygon shape, double locationX, double locationY) {
         this.shape = shape;
         this.shape.setTranslateX(locationX);
         this.shape.setTranslateY(locationY);
+        this.alive = true;
     }
     
     public Polygon getShape() {
@@ -36,5 +39,18 @@ public class MovingCharacter {
     public void setLocationY(double y) {
         this.shape.setTranslateY(y);
     }
-    
+
+    public boolean isAlive() {
+        return this.alive;
+    }
+
+    public void setAlive(boolean alive) {
+        this.alive = alive;
+    }
+
+    public boolean hits(MovingCharacter other) {
+        Shape intersect = Shape.intersect(this.getShape(), other.getShape());
+        return intersect.getBoundsInLocal().getWidth() != -1;
+    }
+
 }
