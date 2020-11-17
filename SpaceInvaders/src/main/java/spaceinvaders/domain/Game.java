@@ -3,6 +3,7 @@ package spaceinvaders.domain;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import javafx.scene.shape.Shape;
 public class Game {
 
     private double sizeX;
@@ -36,8 +37,8 @@ public class Game {
         return this.sizeY;
     }
 
-    public LaserGun getLaserGun() {
-        return this.laserGun;
+    public Shape getLaserGunShape() {
+        return this.laserGun.getShape();
     }
 
     public List<Alien> getAliens() {
@@ -48,8 +49,26 @@ public class Game {
         return this.shots;
     }
 
-    public List<MovingCharacter> getRemoved() {
-        return this.removed;
+    public List<Shape> getAliveShapes() {
+        List<Shape> aliveShapes = new ArrayList();
+
+        for (Alien alien : this.aliens) {
+            aliveShapes.add(alien.getShape());
+        }
+
+        for (Shot shot : this.shots) {
+            aliveShapes.add(shot.getShape());
+        }
+
+        return aliveShapes;
+    }
+
+    public List<Shape> getRemovedShapes() {
+        List<Shape> removedShapes = new ArrayList();
+        for (MovingCharacter movingChar : this.removed) {
+            removedShapes.add(movingChar.getShape());
+        }
+        return removedShapes;
     }
 
     public void moveLeft() {
@@ -77,7 +96,7 @@ public class Game {
                 shot.setAlive(false);
             }
 
-            shot.move();
+            shot.moveUp();
 
             for (Alien alien : this.aliens) {
                 if (shot.hits(alien)) {

@@ -8,10 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import spaceinvaders.domain.Alien;
-import spaceinvaders.domain.Shot;
 import spaceinvaders.domain.Game;
-import spaceinvaders.domain.MovingCharacter;
 
 public class SpaceInvadersUi extends Application {
 
@@ -27,7 +24,7 @@ public class SpaceInvadersUi extends Application {
         Pane pane = new Pane();
         pane.setPrefSize(game.getSizeX(), game.getSizeY());
 
-        pane.getChildren().add(game.getLaserGun().getShape());
+        pane.getChildren().add(game.getLaserGunShape());
 
         Scene scene = new Scene(pane);
 
@@ -55,21 +52,13 @@ public class SpaceInvadersUi extends Application {
                     game.shoot();
                 }
 
-                for (MovingCharacter movingChar : game.getRemoved()) {
-                    pane.getChildren().remove(movingChar.getShape());
-                }
+                pane.getChildren().removeAll(game.getRemovedShapes());
 
-                for (Shot shot : game.getShots()) {
-                    pane.getChildren().remove(shot.getShape());
-                    pane.getChildren().add(shot.getShape());
-                }
+                pane.getChildren().removeAll(game.getAliveShapes());
+                pane.getChildren().addAll(game.getAliveShapes());
 
-                for (Alien alien : game.getAliens()) {
-                    pane.getChildren().remove(alien.getShape());
-                    pane.getChildren().add(alien.getShape());
-                }
             }
-        }.start();;
+        }.start();
 
         stage.setTitle("Space Invaders");
         stage.setScene(scene);
