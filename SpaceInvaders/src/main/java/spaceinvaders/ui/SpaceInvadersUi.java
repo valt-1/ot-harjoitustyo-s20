@@ -44,11 +44,11 @@ public class SpaceInvadersUi extends Application {
             public void handle(long now) {
 
                 if (pressedKeys.getOrDefault(KeyCode.LEFT, Boolean.FALSE)) {
-                    game.getLaserGun().moveLeft();
+                    game.moveLeft();
                 }
 
                 if (pressedKeys.getOrDefault(KeyCode.RIGHT, Boolean.FALSE)) {
-                    game.getLaserGun().moveRight();
+                    game.moveRight();
                 }
             }
         }.start();;

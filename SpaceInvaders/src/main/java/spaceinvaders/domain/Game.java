@@ -40,4 +40,12 @@ public class Game {
         return this.aliens;
     }
 
+    public void moveLeft() {
+        this.laserGun.moveLeft();
+    }
+
+    public void moveRight() {
+        this.laserGun.moveRight();
+    }
+
 }
