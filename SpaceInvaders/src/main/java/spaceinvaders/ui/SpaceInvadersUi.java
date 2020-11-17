@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import spaceinvaders.domain.Alien;
 import spaceinvaders.domain.Shot;
 import spaceinvaders.domain.Game;
+import spaceinvaders.domain.MovingCharacter;
 
 public class SpaceInvadersUi extends Application {
 
@@ -52,6 +53,10 @@ public class SpaceInvadersUi extends Application {
 
                 if (pressedKeys.getOrDefault(KeyCode.SPACE, Boolean.FALSE)) {
                     game.shoot();
+                }
+
+                for (MovingCharacter movingChar : game.getRemoved()) {
+                    pane.getChildren().remove(movingChar.getShape());
                 }
 
                 for (Shot shot : game.getShots()) {

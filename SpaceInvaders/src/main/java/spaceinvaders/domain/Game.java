@@ -10,6 +10,7 @@ public class Game {
     private LaserGun laserGun;
     private List<Alien> aliens;
     private List<Shot> shots;
+    private List<MovingCharacter> removed;
 
     public Game(double sizeX, double sizeY) {
         this.sizeX = sizeX;
@@ -24,6 +25,7 @@ public class Game {
         }
 
         this.shots = new ArrayList();
+        this.removed = new ArrayList();
     }
 
     public double getSizeX() {
@@ -44,6 +46,10 @@ public class Game {
 
     public List<Shot> getShots() {
         return this.shots;
+    }
+
+    public List<MovingCharacter> getRemoved() {
+        return this.removed;
     }
 
     public void moveLeft() {
@@ -85,10 +91,13 @@ public class Game {
     }
 
     public void removeDead() {
+        this.removed = new ArrayList();
+
         Iterator<Shot> shotIterator = this.shots.iterator();
         while (shotIterator.hasNext()) {
             Shot shot = shotIterator.next();
             if (!shot.isAlive()) {
+                this.removed.add(shot);
                 shotIterator.remove();
             }
         }
@@ -97,6 +106,7 @@ public class Game {
         while (alienIterator.hasNext()) {
             Alien alien = alienIterator.next();
             if (!alien.isAlive()) {
+                this.removed.add(alien);
                 alienIterator.remove();
             }
         }
