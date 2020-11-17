@@ -41,11 +41,15 @@ public class Game {
     }
 
     public void moveLeft() {
-        this.laserGun.moveLeft();
+        if (this.laserGun.getLocationX() > 10) {
+            this.laserGun.moveLeft();
+        }
     }
 
     public void moveRight() {
-        this.laserGun.moveRight();
+        if (this.laserGun.getLocationX() < this.sizeX - 10) {
+            this.laserGun.moveRight();
+        }
     }
 
 }
