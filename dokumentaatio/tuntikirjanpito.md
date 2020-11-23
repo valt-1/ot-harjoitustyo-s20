@@ -9,6 +9,6 @@
 |       | 0,5 | testit
 |       | 0,5 | refaktorointi
 |       | 1,5 | avaruusolioiden toteutus, käyttöliittymä
-| 17.11.| 0,5 | refaktorointi
+| 17.11.| 1   | refaktorointi
 |       | 2,5 | lasertykin liikuttamisen korjaus, ampumisen toteutus
-| yht.  | 8,5 |  |
+| yht.  | 9   |  |
