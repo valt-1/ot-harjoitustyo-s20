@@ -7,6 +7,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import spaceinvaders.domain.Game;
 
@@ -24,6 +25,9 @@ public class SpaceInvadersUi extends Application {
         Pane pane = new Pane();
         pane.setPrefSize(game.getSizeX(), game.getSizeY());
 
+        Text score = new Text(10, 20, "Score: 0");
+        pane.getChildren().add(score);
+
         pane.getChildren().add(game.getLaserGunShape());
 
         Scene scene = new Scene(pane);
@@ -39,6 +43,7 @@ public class SpaceInvadersUi extends Application {
             @Override
             public void handle(long now) {
                 game.update();
+                score.setText("Score: " + game.getScore());
 
                 if (pressedKeys.getOrDefault(KeyCode.LEFT, Boolean.FALSE)) {
                     game.moveLeft();

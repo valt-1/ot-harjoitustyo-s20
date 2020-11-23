@@ -8,6 +8,7 @@ public class Game {
 
     private double sizeX;
     private double sizeY;
+    private int score;
     private LaserGun laserGun;
     private List<Alien> aliens;
     private List<Shot> shots;
@@ -16,6 +17,7 @@ public class Game {
     public Game(double sizeX, double sizeY) {
         this.sizeX = sizeX;
         this.sizeY = sizeY;
+        this.score = 0;
         this.laserGun = new LaserGun(sizeX / 2, sizeY - 10);
 
         this.aliens = new ArrayList();
@@ -35,6 +37,10 @@ public class Game {
 
     public double getSizeY() {
         return this.sizeY;
+    }
+
+    public int getScore() {
+        return this.score;
     }
 
     public Shape getLaserGunShape() {
@@ -102,6 +108,7 @@ public class Game {
                 if (shot.hits(alien)) {
                     alien.setAlive(false);
                     shot.setAlive(false);
+                    this.score += 10;
                 }
             }
         }
