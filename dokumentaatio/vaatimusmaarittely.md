@@ -16,6 +16,8 @@ Viholliset liikkuvat rivistönä edestakaisin ruudun vasemman ja oikean reunan v
 - käyttäjä voi liikuttaa lasertykkiä vasemmalle tai oikealle __tehty__
 - käyttäjä voi ampua ylöspäin __tehty__
     - jos osuu avaruusolioon, olio katoaa ruudulta ja pelaaja saa pisteitä __tehty__
+- avaruusoliot liikkuvat __tehty__
+- avaruusoliot ampuvat
 - käyttäjä näkee pelin aikana kertyneet pisteet __tehty__
 - käyttäjä näkee hiscoren
 - käyttäjä näkee jäljellä olevat elämät

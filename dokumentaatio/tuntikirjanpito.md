@@ -13,4 +13,5 @@
 |       | 2,5 | lasertykin liikuttamisen korjaus, ampumisen toteutus
 | 23.11.| 0,5 | pistelaskurin lisääminen
 | 24.11.| 0,5 | jacocon ja checkstylen kofiguraatiot
-| yht.  | 10  |  |
+|       | 1,5 | avaruusolioiden liikkeen toteutus
+| yht.  | 11,5|  |

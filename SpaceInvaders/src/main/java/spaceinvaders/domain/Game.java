@@ -16,6 +16,7 @@ public class Game {
     private double rightAlienX;
     private double bottomAlienY;
     private int alienDirection;
+    private double speed;
     private List<Alien> aliens;
 
     private List<Shot> shots;
@@ -31,6 +32,7 @@ public class Game {
         this.rightAlienX = 560;
         this.bottomAlienY = 260;
         this.alienDirection = 1;
+        this.speed = 0.2;
 
         this.aliens = new ArrayList();
         for (int i = 0; i < 11; i++) {
@@ -109,6 +111,8 @@ public class Game {
     }
 
     public void update() {
+
+        // Move gun shots and check for hits
         for (Shot shot : this.shots) {
             if (shot.getLocationY() < 0) {
                 shot.setAlive(false);
@@ -125,21 +129,21 @@ public class Game {
             }
         }
 
-        if(this.rightAlienX > this.sizeX) {
-            this.alienDirection = -1;
-        }
-
-        if (this.leftAlienX < 0) {
-            this.alienDirection = 1;
+        // Move aliens
+        if (this.rightAlienX > this.sizeX || this.leftAlienX < 0) {
+            this.alienDirection = this.alienDirection * -1;
+            for (Alien alien : this.aliens) {
+                alien.moveDown();
+            }
         }
 
         for (Alien alien : this.aliens) {
-            alien.move(alienDirection, 0.3);
+            alien.moveHorizontal(alienDirection, speed);
         }
+        this.leftAlienX += this.alienDirection * speed;
+        this.rightAlienX += this.alienDirection * speed;
 
-        this.leftAlienX = this.leftAlienX + this.alienDirection * 0.3;
-        this.rightAlienX = this.rightAlienX + this.alienDirection * 0.3;
-
+        // Update game character lists
         this.removeDead();
     }
 
