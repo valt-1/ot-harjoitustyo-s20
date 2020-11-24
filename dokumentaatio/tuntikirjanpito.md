@@ -11,4 +11,6 @@
 |       | 1,5 | avaruusolioiden toteutus, käyttöliittymä
 | 17.11.| 1   | refaktorointi
 |       | 2,5 | lasertykin liikuttamisen korjaus, ampumisen toteutus
-| yht.  | 9   |  |
+| 23.11.| 0,5 | pistelaskurin lisääminen
+| 24.11.| 0,5 | jacocon ja checkstylen kofiguraatiot
+| yht.  | 10  |  |

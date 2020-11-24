@@ -27,3 +27,9 @@ mvn jacoco:report
 ```
 
 Testikattavuusraportin tarkastelu: avaa selaimella tiedosto _target/site/jacoco/index.html_
+
+Checkstyle:
+```
+mvn jxr:jxr checkstyle:checkstyle
+```
+Checkstyle-raportin tarkastelu: avaa selaimella tiedosto _target/site/checkstyle.html_
