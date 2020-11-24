@@ -13,10 +13,11 @@ Viholliset liikkuvat rivistönä edestakaisin ruudun vasemman ja oikean reunan v
 - käyttäjä voi aloittaa peliin
 
 ### Pelin aikana
-- käyttäjä voi liikuttaa lasertykkiä vasemmalle tai oikealle
-- käyttäjä voi ampua ylöspäin
-    - jos osuu avaruusolioon, olio katoaa ruudulta ja pelaaja saa pisteitä
-- käyttäjä näkee pelin aikana kertyneet pisteet ja hiscoren
+- käyttäjä voi liikuttaa lasertykkiä vasemmalle tai oikealle __tehty__
+- käyttäjä voi ampua ylöspäin __tehty__
+    - jos osuu avaruusolioon, olio katoaa ruudulta ja pelaaja saa pisteitä __tehty__
+- käyttäjä näkee pelin aikana kertyneet pisteet __tehty__
+- käyttäjä näkee hiscoren
 - käyttäjä näkee jäljellä olevat elämät
     - jos avaruusolion ammus osuu lasertykkiin, pelaaja menettää elämän
 - käyttäjä voi lopettaa pelin kesken
@@ -29,8 +30,9 @@ Viholliset liikkuvat rivistönä edestakaisin ruudun vasemman ja oikean reunan v
 
 
 ## Jatkokehitysideoita
-- vihollisten liike nopeutuu niiden määrän pienentyessä
 - suojakilvet jotka pysättävät ammukset mutta tuhoutuvat vähitellen osumista
 - vihollisten yläpuolelle ilmestyy välillä ufo, jonka ampumisesta saa lisäpisteitä
+- vihollisten liike nopeutuu niiden määrän pienentyessä
 - käyttäjätunnuksen luominen, kirjautuminen ja käyttäjäkohtainen hiscore
 - käyttäjä voi valita pelin vaikeustason
+- jos pelaaja saa kaikki avaruusoliot ammuttua, ilmestyy ruudun yläreunaan uudeet oliot ja peli jatkuu vaikeampana
