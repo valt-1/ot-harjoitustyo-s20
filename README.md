@@ -11,7 +11,7 @@
 Ohjelman suorittaminen:
 
 ```
-mvn compile exec:java -Dexec.mainClass=spaceinvaders.Main
+mvn compile exec:java -Dexec.mainClass=spaceinvaders.ui.Main
 ```
 
 Testien suorittaminen:

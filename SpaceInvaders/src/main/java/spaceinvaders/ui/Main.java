@@ -1,6 +1,4 @@
-package spaceinvaders;
-
-import spaceinvaders.ui.SpaceInvadersUi;
+package spaceinvaders.ui;
 
 public class Main {
 
