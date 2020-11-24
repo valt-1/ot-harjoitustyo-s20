@@ -9,8 +9,15 @@ public class Game {
     private double sizeX;
     private double sizeY;
     private int score;
+
     private LaserGun laserGun;
+
+    private double leftAlienX;
+    private double rightAlienX;
+    private double bottomAlienY;
+    private int alienDirection;
     private List<Alien> aliens;
+
     private List<Shot> shots;
     private List<MovingCharacter> removed;
 
@@ -20,8 +27,13 @@ public class Game {
         this.score = 0;
         this.laserGun = new LaserGun(sizeX / 2, sizeY - 10);
 
+        this.leftAlienX = 0;
+        this.rightAlienX = 560;
+        this.bottomAlienY = 260;
+        this.alienDirection = 1;
+
         this.aliens = new ArrayList();
-        for (int i = 0; i < 16; i++) {
+        for (int i = 0; i < 11; i++) {
             for (int j = 0; j < 5; j++) {
                 this.aliens.add(new Alien(10 + i * (20 + 30), 60 + j * (20 + 20)));
             }
@@ -77,13 +89,13 @@ public class Game {
         return removedShapes;
     }
 
-    public void moveLeft() {
+    public void moveGunLeft() {
         if (this.laserGun.getLocationX() > 10) {
             this.laserGun.moveLeft();
         }
     }
 
-    public void moveRight() {
+    public void moveGunRight() {
         if (this.laserGun.getLocationX() < this.sizeX - 10) {
             this.laserGun.moveRight();
         }
@@ -112,6 +124,21 @@ public class Game {
                 }
             }
         }
+
+        if(this.rightAlienX > this.sizeX) {
+            this.alienDirection = -1;
+        }
+
+        if (this.leftAlienX < 0) {
+            this.alienDirection = 1;
+        }
+
+        for (Alien alien : this.aliens) {
+            alien.move(alienDirection, 0.3);
+        }
+
+        this.leftAlienX = this.leftAlienX + this.alienDirection * 0.3;
+        this.rightAlienX = this.rightAlienX + this.alienDirection * 0.3;
 
         this.removeDead();
     }

@@ -46,11 +46,11 @@ public class SpaceInvadersUi extends Application {
                 score.setText("Score: " + game.getScore());
 
                 if (pressedKeys.getOrDefault(KeyCode.LEFT, Boolean.FALSE)) {
-                    game.moveLeft();
+                    game.moveGunLeft();
                 }
 
                 if (pressedKeys.getOrDefault(KeyCode.RIGHT, Boolean.FALSE)) {
-                    game.moveRight();
+                    game.moveGunRight();
                 }
 
                 if (pressedKeys.getOrDefault(KeyCode.SPACE, Boolean.FALSE)) {
