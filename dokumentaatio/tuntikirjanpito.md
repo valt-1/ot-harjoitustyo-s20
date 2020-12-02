@@ -19,4 +19,5 @@
 |       | 1,5 | hiscoren toteutus
 | 2.12. | 0,5 | testit
 |       | 1,5 | dokumentaatio
-| yht.  | 16,5|  |
+|       | 0,5 | refaktorointi ja konfiguraatiot
+| yht.  | 17 |  |
