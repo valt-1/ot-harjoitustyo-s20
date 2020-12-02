@@ -6,7 +6,11 @@
 
 [Työaikakirjanpito](dokumentaatio/tuntikirjanpito.md)
 
+[Arkkitehtuurikuvaus](dokumentaatio/arkkitehtuuri.md)
+
 ## Komentorivitoiminnot
+
+Komennot suoritetaan hakemistossa _SpaceInvaders_.
 
 Ohjelman suorittaminen:
 
