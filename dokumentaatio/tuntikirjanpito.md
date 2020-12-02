@@ -15,4 +15,6 @@
 | 24.11.| 0,5 | jacocon ja checkstylen kofiguraatiot
 |       | 1,5 | avaruusolioiden liikkeen toteutus
 |       | 0,5 | testit
-| yht.  | 12  |  |
+| 1.12. | 1   | käyttöliittymän parantelua
+|       | 1,5 | hiscoren toteutus
+| yht.  | 14,5  |  |
