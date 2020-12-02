@@ -17,7 +17,7 @@
 |       | 0,5 | testit
 | 1.12. | 1   | käyttöliittymän parantelua
 |       | 1,5 | hiscoren toteutus
-| 2.12. | 0,5 | testit
+| 2.12. | 1 | testit
 |       | 1,5 | dokumentaatio
 |       | 0,5 | refaktorointi ja konfiguraatiot
-| yht.  | 17 |  |
+| yht.  | 17,5|  |
