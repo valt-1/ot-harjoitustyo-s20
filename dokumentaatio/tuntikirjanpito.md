@@ -17,4 +17,5 @@
 |       | 0,5 | testit
 | 1.12. | 1   | käyttöliittymän parantelua
 |       | 1,5 | hiscoren toteutus
-| yht.  | 14,5  |  |
+| 2.12. | 0,5 | testit
+| yht.  | 15  |  |
