@@ -18,4 +18,5 @@
 | 1.12. | 1   | käyttöliittymän parantelua
 |       | 1,5 | hiscoren toteutus
 | 2.12. | 0,5 | testit
-| yht.  | 15  |  |
+|       | 1,5 | dokumentaatio
+| yht.  | 16,5|  |
