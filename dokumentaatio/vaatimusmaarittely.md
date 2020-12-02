@@ -19,7 +19,7 @@ Viholliset liikkuvat rivistönä edestakaisin ruudun vasemman ja oikean reunan v
 - avaruusoliot liikkuvat __tehty__
 - avaruusoliot ampuvat
 - käyttäjä näkee pelin aikana kertyneet pisteet __tehty__
-- käyttäjä näkee hiscoren
+- käyttäjä näkee hiscoren __tehty__
 - käyttäjä näkee jäljellä olevat elämät
     - jos avaruusolion ammus osuu lasertykkiin, pelaaja menettää elämän
 - käyttäjä voi lopettaa pelin kesken
