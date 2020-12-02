@@ -52,15 +52,15 @@ public class Game {
     }
 
     public double getSizeX() {
-        return this.sizeX;
+        return sizeX;
     }
 
     public double getSizeY() {
-        return this.sizeY;
+        return sizeY;
     }
 
     public int getScore() {
-        return this.score;
+        return score;
     }
 
     public int getHiScore() {
@@ -68,25 +68,25 @@ public class Game {
     }
 
     public Shape getLaserGunShape() {
-        return this.laserGun.getShape();
+        return laserGun.getShape();
     }
 
     public List<Alien> getAliens() {
-        return this.aliens;
+        return aliens;
     }
 
     public List<Shot> getShots() {
-        return this.shots;
+        return shots;
     }
 
     public List<Shape> getAliveShapes() {
         List<Shape> aliveShapes = new ArrayList();
 
-        for (Alien alien : this.aliens) {
+        for (Alien alien : aliens) {
             aliveShapes.add(alien.getShape());
         }
 
-        for (Shot shot : this.shots) {
+        for (Shot shot : shots) {
             aliveShapes.add(shot.getShape());
         }
 
@@ -95,98 +95,99 @@ public class Game {
 
     public List<Shape> getRemovedShapes() {
         List<Shape> removedShapes = new ArrayList();
-        for (GameCharacter movingChar : this.removed) {
-            removedShapes.add(movingChar.getShape());
+        for (GameCharacter gameChar : removed) {
+            removedShapes.add(gameChar.getShape());
         }
         return removedShapes;
     }
 
     public void moveGunLeft() {
-        if (this.laserGun.getLocationX() > 10) {
-            this.laserGun.moveLeft();
+        if (laserGun.getLocationX() > 10) {
+            laserGun.moveLeft();
         }
     }
 
     public void moveGunRight() {
-        if (this.laserGun.getLocationX() < this.sizeX - 10) {
-            this.laserGun.moveRight();
+        if (laserGun.getLocationX() < sizeX - 10) {
+            laserGun.moveRight();
         }
     }
 
     public void shoot() {
-        if (this.shots.size() < 1) {
-            double locationX = this.laserGun.getLocationX();
-            this.shots.add(new Shot(locationX, this.sizeY - 30));
+        if (shots.size() < 1) {
+            double locationX = laserGun.getLocationX();
+            shots.add(new Shot(locationX, sizeY - 30));
         }
     }
 
     public void update() {
-        this.moveGunShots();
-        this.moveAliens();
-        this.removeDead();
+        moveGunShots();
+        moveAliens();
+        removeDead();
 
-        if (this.score > this.hiScore) {
-            this.hiScore = this.score;
+        if (score > hiScore) {
+            hiScore = score;
         }
     }
 
     private void moveGunShots() {
-        for (Shot shot : this.shots) {
+        for (Shot shot : shots) {
             if (shot.getLocationY() < 0) {
                 shot.setAlive(false);
             }
 
             shot.moveUp();
 
-            for (Alien alien : this.aliens) {
+            for (Alien alien : aliens) {
                 if (shot.hits(alien)) {
                     alien.setAlive(false);
                     shot.setAlive(false);
-                    this.score += 10;
+                    score += 10;
                 }
             }
         }
     }
 
     private void moveAliens() {
-        if (this.rightAlienX > this.sizeX || this.leftAlienX < 0) {
-            this.alienDirection = this.alienDirection * -1;
-            for (Alien alien : this.aliens) {
+        if (rightAlienX > sizeX || leftAlienX < 0) {
+            alienDirection = alienDirection * -1;
+            for (Alien alien : aliens) {
                 alien.moveDown();
             }
         }
 
-        for (Alien alien : this.aliens) {
+        for (Alien alien : aliens) {
             alien.moveHorizontal(alienDirection, speed);
         }
-        this.leftAlienX += this.alienDirection * speed;
-        this.rightAlienX += this.alienDirection * speed;
+
+        leftAlienX += alienDirection * speed;
+        rightAlienX += alienDirection * speed;
     }
 
     public void removeDead() {
-        this.removed = new ArrayList();
+        removed = new ArrayList();
 
-        Iterator<Shot> shotIterator = this.shots.iterator();
+        Iterator<Shot> shotIterator = shots.iterator();
         while (shotIterator.hasNext()) {
             Shot shot = shotIterator.next();
             if (!shot.isAlive()) {
-                this.removed.add(shot);
+                removed.add(shot);
                 shotIterator.remove();
             }
         }
 
-        Iterator<Alien> alienIterator = this.aliens.iterator();
+        Iterator<Alien> alienIterator = aliens.iterator();
         while (alienIterator.hasNext()) {
             Alien alien = alienIterator.next();
             if (!alien.isAlive()) {
-                this.removed.add(alien);
+                removed.add(alien);
                 alienIterator.remove();
             }
         }
     }
 
     public void saveHiScore() throws Exception {
-        hiScoreDao.saveScore(this.hiScore);
+        hiScoreDao.saveScore(hiScore);
     }
 
 }

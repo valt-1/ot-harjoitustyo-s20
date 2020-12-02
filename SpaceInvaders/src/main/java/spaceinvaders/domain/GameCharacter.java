@@ -16,15 +16,15 @@ public class GameCharacter {
     }
     
     public Polygon getShape() {
-        return this.shape;
+        return shape;
     }
 
     public double getLocationX() {
-        return this.shape.getTranslateX();
+        return shape.getTranslateX();
     }
 
     public double getLocationY() {
-        return this.shape.getTranslateY();
+        return shape.getTranslateY();
     }
 
     public void setLocation(double x, double y) {
@@ -33,15 +33,15 @@ public class GameCharacter {
     }
 
     public void setLocationX(double x) {
-        this.shape.setTranslateX(x);
+        shape.setTranslateX(x);
     }
 
     public void setLocationY(double y) {
-        this.shape.setTranslateY(y);
+        shape.setTranslateY(y);
     }
 
     public boolean isAlive() {
-        return this.alive;
+        return alive;
     }
 
     public void setAlive(boolean alive) {
