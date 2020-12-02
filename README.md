@@ -1,5 +1,7 @@
 # Ohjelmistotekniikka, harjoitustyö
 
+Harjoitustyön aiheena on versio Space Invaders -pelistä, tarkempi toiminnalisuus selviää [vaatimusmäärittelystä](dokumentaatio/vaatimusmaarittely.md). Pelaaja voi liikkua nuolinäppäimillä ja ampua painamalla välilyöntiä.
+
 ## Dokumentaatio
 
 [Vaatimusmäärittely](dokumentaatio/vaatimusmaarittely.md)
