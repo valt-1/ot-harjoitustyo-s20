@@ -3,12 +3,12 @@ package spaceinvaders.domain;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Shape;
 
-public class MovingCharacter {
+public class GameCharacter {
     
     private Polygon shape;
     private boolean alive;
     
-    public MovingCharacter(Polygon shape, double locationX, double locationY) {
+    public GameCharacter(Polygon shape, double locationX, double locationY) {
         this.shape = shape;
         this.shape.setTranslateX(locationX);
         this.shape.setTranslateY(locationY);
@@ -48,7 +48,7 @@ public class MovingCharacter {
         this.alive = alive;
     }
 
-    public boolean hits(MovingCharacter other) {
+    public boolean hits(GameCharacter other) {
         Shape intersect = Shape.intersect(this.getShape(), other.getShape());
         return intersect.getBoundsInLocal().getWidth() != -1;
     }

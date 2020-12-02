@@ -24,7 +24,7 @@ public class Game {
     private List<Alien> aliens;
 
     private List<Shot> shots;
-    private List<MovingCharacter> removed;
+    private List<GameCharacter> removed;
 
     public Game(HiScoreDao hiScoreDao, double sizeX, double sizeY) {
         this.hiScoreDao = hiScoreDao;
@@ -95,7 +95,7 @@ public class Game {
 
     public List<Shape> getRemovedShapes() {
         List<Shape> removedShapes = new ArrayList();
-        for (MovingCharacter movingChar : this.removed) {
+        for (GameCharacter movingChar : this.removed) {
             removedShapes.add(movingChar.getShape());
         }
         return removedShapes;
