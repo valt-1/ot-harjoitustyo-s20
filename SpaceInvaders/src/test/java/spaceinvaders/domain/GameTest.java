@@ -1,5 +1,8 @@
 package spaceinvaders.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+import javafx.geometry.Point2D;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -39,6 +42,48 @@ public class GameTest {
     @Test
     public void startScoreIsZero() {
         assertEquals(0, game.getScore(), delta);
+    }
+
+    @Test
+    public void updateMovesAllAliens() {
+        List<Point2D> oldLocations = new ArrayList();
+        for (Alien alien : game.getAliens()) {
+            oldLocations.add(new Point2D(alien.getLocationX(), alien.getLocationY()));
+        }
+
+        game.update();
+
+        List<Point2D> newLocations = new ArrayList();
+        for (Alien alien : game.getAliens()) {
+            newLocations.add(new Point2D(alien.getLocationX(), alien.getLocationY()));
+        }
+
+        boolean moved = true;
+        for (int i = 0; i < game.getAliens().size(); i++) {
+            if (oldLocations.get(i).getX() == newLocations.get(i).getX()
+                    && oldLocations.get(i).getY() == newLocations.get(i).getY()) {
+                moved = false;
+            }
+        }
+
+        assertTrue(moved);
+    }
+
+    @Test
+    public void scoreIncrementedIfShotHitsAlien() {
+        game.getAliens().add(new Alien(20, 20));
+        game.getShots().add(new Shot(20, 21));
+        game.update();
+        assertEquals(10, game.getScore());
+    }
+
+    @Test
+    public void alienRemovedWhenHit() {
+        Alien alien = new Alien(20, 20);
+        game.getAliens().add(alien);
+        game.getShots().add(new Shot(20, 21));
+        game.update();
+        assertFalse(game.getAliens().contains(alien));
     }
 
 }
