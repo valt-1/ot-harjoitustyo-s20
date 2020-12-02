@@ -121,8 +121,16 @@ public class Game {
     }
 
     public void update() {
+        this.moveGunShots();
+        this.moveAliens();
+        this.removeDead();
 
-        // Move gun shots and check for hits
+        if (this.score > this.hiScore) {
+            this.hiScore = this.score;
+        }
+    }
+
+    private void moveGunShots() {
         for (Shot shot : this.shots) {
             if (shot.getLocationY() < 0) {
                 shot.setAlive(false);
@@ -138,8 +146,9 @@ public class Game {
                 }
             }
         }
+    }
 
-        // Move aliens
+    private void moveAliens() {
         if (this.rightAlienX > this.sizeX || this.leftAlienX < 0) {
             this.alienDirection = this.alienDirection * -1;
             for (Alien alien : this.aliens) {
@@ -152,13 +161,6 @@ public class Game {
         }
         this.leftAlienX += this.alienDirection * speed;
         this.rightAlienX += this.alienDirection * speed;
-
-        // Update game character lists
-        this.removeDead();
-
-        if (this.score > this.hiScore) {
-            this.hiScore = this.score;
-        }
     }
 
     public void removeDead() {
