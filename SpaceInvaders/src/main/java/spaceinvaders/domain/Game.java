@@ -4,11 +4,15 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import javafx.scene.shape.Shape;
+import spaceinvaders.dao.HiScoreDao;
+
 public class Game {
+    private HiScoreDao hiScoreDao;
 
     private double sizeX;
     private double sizeY;
     private int score;
+    private int hiScore;
 
     private LaserGun laserGun;
 
@@ -22,10 +26,12 @@ public class Game {
     private List<Shot> shots;
     private List<MovingCharacter> removed;
 
-    public Game(double sizeX, double sizeY) {
+    public Game(HiScoreDao hiScoreDao, double sizeX, double sizeY) {
+        this.hiScoreDao = hiScoreDao;
         this.sizeX = sizeX;
         this.sizeY = sizeY;
         this.score = 0;
+        this.hiScore = this.hiScoreDao.getHiScore();
         this.laserGun = new LaserGun(sizeX / 2, sizeY - 10);
 
         this.leftAlienX = 0;
@@ -55,6 +61,10 @@ public class Game {
 
     public int getScore() {
         return this.score;
+    }
+
+    public int getHiScore() {
+        return hiScore;
     }
 
     public Shape getLaserGunShape() {
@@ -145,6 +155,10 @@ public class Game {
 
         // Update game character lists
         this.removeDead();
+
+        if (this.score > this.hiScore) {
+            this.hiScore = this.score;
+        }
     }
 
     public void removeDead() {
@@ -167,6 +181,10 @@ public class Game {
                 alienIterator.remove();
             }
         }
+    }
+
+    public void saveHiScore() throws Exception {
+        hiScoreDao.saveScore(this.hiScore);
     }
 
 }
