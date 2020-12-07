@@ -29,7 +29,7 @@ public class Game {
         this.size = size;
         this.score = 0;
         this.hiScore = this.hiScoreDao.getHiScore();
-        this.laserGun = new LaserGun(size / 2, size - 10);
+        this.laserGun = new LaserGun(size / 2, size);
 
         this.leftAlienX = 0;
         this.rightAlienX = 560;
@@ -46,6 +46,10 @@ public class Game {
 
         this.shots = new ArrayList();
         this.removed = new ArrayList();
+    }
+
+    public double getSize() {
+        return size;
     }
 
     public int getScore() {

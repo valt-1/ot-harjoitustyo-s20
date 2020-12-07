@@ -35,8 +35,8 @@ public class GameTest {
     @Test
     public void constructorSetsCorrectSize() {
         Game newGame = new Game(stubDao, 400, 400);
-        assertEquals(400, newGame.getSizeX(), delta);
-        assertEquals(400, newGame.getSizeY(), delta);
+        assertEquals(400, newGame.getSize(), delta);
+        assertEquals(400, newGame.getSize(), delta);
     }
 
     @Test
