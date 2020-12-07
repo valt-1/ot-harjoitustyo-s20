@@ -13,6 +13,7 @@ public class Game {
     private int score;
     private int hiScore;
     private boolean over;
+    private boolean won;
 
     private final LaserGun laserGun;
     private double leftAlienX;
@@ -29,6 +30,7 @@ public class Game {
         this.score = 0;
         this.hiScore = this.hiScoreDao.getHiScore();
         this.over = false;
+        this.won = false;
         this.laserGun = new LaserGun(size / 2, size);
 
         this.leftAlienX = 0;
@@ -61,6 +63,10 @@ public class Game {
 
     public boolean isOver() {
         return over;
+    }
+
+    public boolean isWon() {
+        return won;
     }
 
     public Shape getLaserGunShape() {
@@ -123,6 +129,10 @@ public class Game {
 
         if (score > hiScore) {
             hiScore = score;
+        }
+
+        if (aliens.isEmpty()) {
+            won = true;
         }
     }
 

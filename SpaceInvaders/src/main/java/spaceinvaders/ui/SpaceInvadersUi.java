@@ -63,9 +63,9 @@ public class SpaceInvadersUi extends Application {
         Pane gamePane = new Pane();
         gamePane.setPrefSize(size, size);
         gameStackPane.getChildren().add(gamePane);
-        Label gameOver = new Label("");
-        gameStackPane.setAlignment(gameOver, Pos.CENTER);
-        gameStackPane.getChildren().add(gameOver);
+        Label gameStatus = new Label("");
+        gameStackPane.setAlignment(gameStatus, Pos.CENTER);
+        gameStackPane.getChildren().add(gameStatus);
         mainPane.getChildren().add(gameStackPane);
 
         Scene gameScene = new Scene(mainPane);
@@ -83,7 +83,7 @@ public class SpaceInvadersUi extends Application {
         start.setPrefSize(150, 40);
         startPane.setAlignment(start, Pos.CENTER);
         start.setOnAction(e -> {
-            gameOver.setText("");
+            gameStatus.setText("");
             gamePane.getChildren().clear();
             game = new Game(hiScoreDao, size, speed);
             stage.setScene(gameScene);
@@ -102,9 +102,15 @@ public class SpaceInvadersUi extends Application {
                 @Override
                 public void handle(long now) {
                     game.update();
+
                     if (game.isOver()) {
                         this.stop();
-                        gameOver.setText("Game over!");
+                        gameStatus.setText("Game over!");
+                    }
+
+                    if (game.isWon()) {
+                        this.stop();
+                        gameStatus.setText("OMG you saved the world!!! <3");
                     }
 
                     score.setText("Score: " + game.getScore());
