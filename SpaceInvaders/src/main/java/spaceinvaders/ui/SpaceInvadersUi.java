@@ -58,9 +58,15 @@ public class SpaceInvadersUi extends Application {
         textBox.getChildren().addAll(score, hiScore, lives);
         mainPane.getChildren().add(textBox);
 
+        StackPane gameStackPane = new StackPane();
+        gameStackPane.setPrefSize(size, size);
         Pane gamePane = new Pane();
         gamePane.setPrefSize(size, size);
-        mainPane.getChildren().add(gamePane);
+        gameStackPane.getChildren().add(gamePane);
+        Label gameOver = new Label("");
+        gameStackPane.setAlignment(gameOver, Pos.CENTER);
+        gameStackPane.getChildren().add(gameOver);
+        mainPane.getChildren().add(gameStackPane);
 
         Scene gameScene = new Scene(mainPane);
 
@@ -77,6 +83,7 @@ public class SpaceInvadersUi extends Application {
         start.setPrefSize(150, 40);
         startPane.setAlignment(start, Pos.CENTER);
         start.setOnAction(e -> {
+            gameOver.setText("");
             gamePane.getChildren().clear();
             game = new Game(hiScoreDao, size, speed);
             stage.setScene(gameScene);
@@ -95,6 +102,11 @@ public class SpaceInvadersUi extends Application {
                 @Override
                 public void handle(long now) {
                     game.update();
+                    if (game.isOver()) {
+                        this.stop();
+                        gameOver.setText("Game over!");
+                    }
+
                     score.setText("Score: " + game.getScore());
 
                     if (pressedKeys.getOrDefault(KeyCode.LEFT, Boolean.FALSE)) {

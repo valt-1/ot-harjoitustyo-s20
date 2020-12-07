@@ -7,17 +7,16 @@ import javafx.scene.shape.Shape;
 import spaceinvaders.dao.HiScoreDao;
 
 public class Game {
-    private HiScoreDao hiScoreDao;
+    private final HiScoreDao hiScoreDao;
 
-    private double size;
+    private final double size;
     private int score;
     private int hiScore;
+    private boolean over;
 
     private final LaserGun laserGun;
-
     private double leftAlienX;
     private double rightAlienX;
-    private double bottomAlienY;
     private int alienDirection;
     private double speed;
     private List<Alien> aliens;
@@ -29,11 +28,11 @@ public class Game {
         this.size = size;
         this.score = 0;
         this.hiScore = this.hiScoreDao.getHiScore();
+        this.over = false;
         this.laserGun = new LaserGun(size / 2, size);
 
         this.leftAlienX = 0;
         this.rightAlienX = 560;
-        this.bottomAlienY = 260;
         this.alienDirection = 1;
         this.speed = speed;
 
@@ -58,6 +57,10 @@ public class Game {
 
     public int getHiScore() {
         return hiScore;
+    }
+
+    public boolean isOver() {
+        return over;
     }
 
     public Shape getLaserGunShape() {
@@ -146,6 +149,9 @@ public class Game {
             alienDirection = alienDirection * -1;
             for (Alien alien : aliens) {
                 alien.moveDown();
+                if (alien.getLocationY() > size - 40) {
+                    over = true;
+                }
             }
         }
 
