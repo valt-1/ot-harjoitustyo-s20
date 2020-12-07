@@ -13,7 +13,6 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import spaceinvaders.dao.FileHiScoreDao;
 import spaceinvaders.dao.HiScoreDao;
@@ -22,21 +21,25 @@ import spaceinvaders.domain.Game;
 public class SpaceInvadersUi extends Application {
 
     private HiScoreDao hiScoreDao;
+    private double size;
+    private double speed;
     private Game game;
 
     @Override
     public void init() throws IOException {
         hiScoreDao = new FileHiScoreDao("hiscore.txt");
-        game = new Game(hiScoreDao, 800, 800);
+        size = 800;
+        speed = 0.2;
+        game = new Game(hiScoreDao, size, speed);
     }
 
     @Override
     public void start(Stage stage) {
         Pane mainPane = new Pane();
-        mainPane.setPrefSize(game.getSizeX(), game.getSizeY() + 20);
+        mainPane.setPrefSize(size, size + 20);
 
         Pane gamePane = new Pane();
-        gamePane.setPrefSize(game.getSizeX(), game.getSizeY());
+        gamePane.setPrefSize(size, size);
         mainPane.getChildren().add(gamePane);
 
         HBox textBox = new HBox(20);
@@ -59,7 +62,7 @@ public class SpaceInvadersUi extends Application {
             }
 
             gamePane.getChildren().clear();
-            game = new Game(hiScoreDao, 800, 800);
+            game = new Game(hiScoreDao, size, speed);
             gamePane.getChildren().add(game.getLaserGunShape());
             score.setText("Score: 0");
             hiScore.setText("HiScore: " + game.getHiScore());

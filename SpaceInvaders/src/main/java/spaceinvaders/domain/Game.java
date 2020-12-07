@@ -9,12 +9,11 @@ import spaceinvaders.dao.HiScoreDao;
 public class Game {
     private HiScoreDao hiScoreDao;
 
-    private double sizeX;
-    private double sizeY;
+    private double size;
     private int score;
     private int hiScore;
 
-    private LaserGun laserGun;
+    private final LaserGun laserGun;
 
     private double leftAlienX;
     private double rightAlienX;
@@ -22,23 +21,21 @@ public class Game {
     private int alienDirection;
     private double speed;
     private List<Alien> aliens;
-
     private List<Shot> shots;
     private List<GameCharacter> removed;
 
-    public Game(HiScoreDao hiScoreDao, double sizeX, double sizeY) {
+    public Game(HiScoreDao hiScoreDao, double size, double speed) {
         this.hiScoreDao = hiScoreDao;
-        this.sizeX = sizeX;
-        this.sizeY = sizeY;
+        this.size = size;
         this.score = 0;
         this.hiScore = this.hiScoreDao.getHiScore();
-        this.laserGun = new LaserGun(sizeX / 2, sizeY - 10);
+        this.laserGun = new LaserGun(size / 2, size - 10);
 
         this.leftAlienX = 0;
         this.rightAlienX = 560;
         this.bottomAlienY = 260;
         this.alienDirection = 1;
-        this.speed = 0.2;
+        this.speed = speed;
 
         this.aliens = new ArrayList();
         for (int i = 0; i < 11; i++) {
@@ -49,14 +46,6 @@ public class Game {
 
         this.shots = new ArrayList();
         this.removed = new ArrayList();
-    }
-
-    public double getSizeX() {
-        return sizeX;
-    }
-
-    public double getSizeY() {
-        return sizeY;
     }
 
     public int getScore() {
@@ -108,7 +97,7 @@ public class Game {
     }
 
     public void moveGunRight() {
-        if (laserGun.getLocationX() < sizeX - 10) {
+        if (laserGun.getLocationX() < size - 10) {
             laserGun.moveRight();
         }
     }
@@ -116,7 +105,7 @@ public class Game {
     public void shoot() {
         if (shots.size() < 1) {
             double locationX = laserGun.getLocationX();
-            shots.add(new Shot(locationX, sizeY - 30));
+            shots.add(new Shot(locationX, size - 30));
         }
     }
 
@@ -149,7 +138,7 @@ public class Game {
     }
 
     private void moveAliens() {
-        if (rightAlienX > sizeX || leftAlienX < 0) {
+        if (rightAlienX > size || leftAlienX < 0) {
             alienDirection = alienDirection * -1;
             for (Alien alien : aliens) {
                 alien.moveDown();
