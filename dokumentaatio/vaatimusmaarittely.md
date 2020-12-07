@@ -37,4 +37,4 @@ Viholliset liikkuvat rivistönä edestakaisin ruudun vasemman ja oikean reunan v
 - vihollisten liike nopeutuu niiden määrän pienentyessä
 - käyttäjätunnuksen luominen, kirjautuminen ja käyttäjäkohtainen hiscore
 - käyttäjä voi valita pelin vaikeustason
-- jos pelaaja saa kaikki avaruusoliot ammuttua, ilmestyy ruudun yläreunaan uudeet oliot ja peli jatkuu vaikeampana
+- jos pelaaja saa kaikki avaruusoliot ammuttua, ilmestyy ruudun yläreunaan uudet oliot ja peli jatkuu vaikeampana
