@@ -20,5 +20,6 @@
 | 2.12. | 1   | testit
 |       | 2   | dokumentaatio
 |       | 0,5 | refaktorointi ja konfiguraatiot
-| 7.12. | 2   | käyttöliittymän parantelu, pelin aloittaminen ja lopettaminen
-| yht.  | 20  |  |
+| 7.12. | 0,5 | käyttöliittymän parantelu
+|       | 2,5 | pelin päättymisen toteutus: lopettaminen, voittaminen ja häviäminen
+| yht.  | 21  |  |
