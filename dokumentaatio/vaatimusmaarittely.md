@@ -10,7 +10,7 @@ Viholliset liikkuvat rivistönä edestakaisin ruudun vasemman ja oikean reunan v
 
 ### Sovelluksen käynnistyessä
 - käyttäjä näkee hiscoren ja lyhyen ohjeen peliin
-- käyttäjä voi aloittaa peliin
+- käyttäjä voi aloittaa peliin __tehty__
 
 ### Pelin aikana
 - käyttäjä voi liikuttaa lasertykkiä vasemmalle tai oikealle __tehty__
@@ -22,12 +22,12 @@ Viholliset liikkuvat rivistönä edestakaisin ruudun vasemman ja oikean reunan v
 - käyttäjä näkee hiscoren __tehty__
 - käyttäjä näkee jäljellä olevat elämät
     - jos avaruusolion ammus osuu lasertykkiin, pelaaja menettää elämän
-- käyttäjä voi lopettaa pelin kesken
+- käyttäjä voi lopettaa pelin kesken __tehty__
 - käyttäjä voi pelata kunnes avaruusoliot saavuttavat ruudun alalaidan, elämät loppuvat tai kaikki avaruusoliot on tuhottu
 
 ### Pelin päätyttyä
 - käyttäjä näkee pelin aikana kertyneet pisteet ja hiscoren
-- jos hiscore ylitettiin, tallennetaan uusi hiscore
+- jos hiscore ylitettiin, tallennetaan uusi hiscore __tehty__
 - käyttäjä voi aloittaa uuden pelin
 
 
