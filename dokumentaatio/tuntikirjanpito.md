@@ -20,4 +20,5 @@
 | 2.12. | 1   | testit
 |       | 2   | dokumentaatio
 |       | 0,5 | refaktorointi ja konfiguraatiot
-| yht.  | 18  |  |
+| 7.12. | 2   | käyttöliittymän parantelu, pelin aloittaminen ja lopettaminen
+| yht.  | 20  |  |
