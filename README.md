@@ -14,6 +14,8 @@ Harjoitustyön aiheena on versio Space Invaders -pelistä, tarkempi toiminnalisu
 
 ## Releaset
 
+[Viikko 6](https://github.com/behindthegroove/ot-harjoitustyo-s20/releases/tag/viikko6)
+
 [Viikko 5](https://github.com/behindthegroove/ot-harjoitustyo-s20/releases/tag/viikko5)
 
 ## Komentorivitoiminnot
