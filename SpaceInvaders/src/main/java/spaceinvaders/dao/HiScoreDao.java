@@ -17,7 +17,7 @@ public interface HiScoreDao {
      *
      * @param score     tallennettava pistemäärä
      *
-     * @throws Exception
+     * @throws Exception 
      */
     void saveScore(int score) throws Exception;
     

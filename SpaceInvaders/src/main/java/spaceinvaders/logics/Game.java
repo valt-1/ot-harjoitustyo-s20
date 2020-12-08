@@ -243,7 +243,7 @@ public class Game {
     /**
      * Tallentaa piste-ennätyksen DAO:n avulla.
      *
-     * @throws Exception
+     * @throws Exception 
      */
     public void saveHiScore() throws Exception {
         hiScoreDao.saveScore(hiScore);

@@ -19,7 +19,7 @@ public class FileHiScoreDao implements HiScoreDao {
      *
      * @param file      tiedosto, johon piste-ennätys tallennetaan
      *
-     * @throws IOException
+     * @throws IOException 
      */
     public FileHiScoreDao(String file) throws IOException {
         this.file = file;
@@ -50,7 +50,7 @@ public class FileHiScoreDao implements HiScoreDao {
      *
      * @param score     tallennettava pistemäärä
      *
-     * @throws IOException
+     * @throws IOException 
      */
     @Override
     public void saveScore(int score) throws IOException {
