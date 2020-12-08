@@ -1,10 +1,14 @@
-package spaceinvaders.domain;
+package spaceinvaders.logics;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import javafx.scene.shape.Shape;
 import spaceinvaders.dao.HiScoreDao;
+import spaceinvaders.domain.Alien;
+import spaceinvaders.domain.GameCharacter;
+import spaceinvaders.domain.LaserGun;
+import spaceinvaders.domain.Shot;
 
 public class Game {
     private final HiScoreDao hiScoreDao;

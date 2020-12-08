@@ -19,7 +19,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import spaceinvaders.dao.FileHiScoreDao;
 import spaceinvaders.dao.HiScoreDao;
-import spaceinvaders.domain.Game;
+import spaceinvaders.logics.Game;
 
 public class SpaceInvadersUi extends Application {
 

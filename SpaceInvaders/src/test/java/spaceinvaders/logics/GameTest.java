@@ -1,4 +1,4 @@
-package spaceinvaders.domain;
+package spaceinvaders.logics;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +7,8 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import spaceinvaders.dao.HiScoreDao;
+import spaceinvaders.domain.Alien;
+import spaceinvaders.domain.Shot;
 
 public class GameTest {
 
