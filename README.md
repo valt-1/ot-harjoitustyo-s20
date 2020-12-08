@@ -10,6 +10,10 @@ Harjoitustyön aiheena on versio Space Invaders -pelistä, tarkempi toiminnalisu
 
 [Arkkitehtuurikuvaus](dokumentaatio/arkkitehtuuri.md)
 
+## Releaset
+
+[Viikko 5](https://github.com/behindthegroove/ot-harjoitustyo-s20/releases/tag/viikko5)
+
 ## Komentorivitoiminnot
 
 Komennot suoritetaan hakemistossa _SpaceInvaders_.
