@@ -20,11 +20,13 @@ Harjoitustyön aiheena on versio Space Invaders -pelistä, tarkempi toiminnalisu
 
 Komennot suoritetaan hakemistossa _SpaceInvaders_.
 
-Ohjelman suorittaminen:
+Suoritettavan jar-tiedoston generointi:
+```
+mvn package
+```
+Suoritettava jar-tiedosto löytyy hakemistosta _target_ nimellä _SpaceInvaders-1.0-SNAPSHOT.jar_
 
-```
-mvn compile exec:java -Dexec.mainClass=spaceinvaders.ui.Main
-```
+### Testaus
 
 Testien suorittaminen:
 
@@ -40,8 +42,18 @@ mvn jacoco:report
 
 Testikattavuusraportin tarkastelu: avaa selaimella tiedosto _target/site/jacoco/index.html_
 
-Checkstyle:
+### Checkstyle
+
+Tiedostoon [checkstyle.xml](SpaceInvaders/checkstyle.xml) määriteltyjen tarkastusten suorittaminen:
 ```
 mvn jxr:jxr checkstyle:checkstyle
 ```
 Checkstyle-raportin tarkastelu: avaa selaimella tiedosto _target/site/checkstyle.html_
+
+### JavaDoc
+
+JavaDocin generointi:
+```
+mvn javadoc:javadoc
+```
+JavaDoc generoidaan hakemistoon _target/site/apidocs/_
