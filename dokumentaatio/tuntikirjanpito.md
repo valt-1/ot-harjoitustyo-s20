@@ -22,5 +22,7 @@
 |       | 0,5 | refaktorointi ja konfiguraatiot
 | 7.12. | 0,5 | käyttöliittymän parantelu
 |       | 2,5 | pelin päättymisen toteutus: lopettaminen, voittaminen ja häviäminen
-| 8.12. | 1,5 | dokumentaatio
-| yht.  | 22,5  |  |
+| 8.12. | 2 | dokumentaatio
+|       | 0,5 | konfiguraatiot
+|       | 1   | javadoc
+| yht.  | 24,5  |  |
