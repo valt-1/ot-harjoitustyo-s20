@@ -10,6 +10,9 @@ import spaceinvaders.domain.GameCharacter;
 import spaceinvaders.domain.LaserGun;
 import spaceinvaders.domain.Shot;
 
+/**
+ * Luokka vastaa pelilogiikasta.
+ */
 public class Game {
     private final HiScoreDao hiScoreDao;
 
@@ -28,6 +31,13 @@ public class Game {
     private List<Shot> shots;
     private List<GameCharacter> removed;
 
+    /**
+     * Luo uuden pelin.
+     *
+     * @param hiScoreDao    DAO piste-ennätyksen tallentamista varten
+     * @param size          peliruudun koko
+     * @param speed         pelin vihollisten liikenopeus
+     */
     public Game(HiScoreDao hiScoreDao, double size, double speed) {
         this.hiScoreDao = hiScoreDao;
         this.size = size;
@@ -85,6 +95,13 @@ public class Game {
         return shots;
     }
 
+    /**
+     * Hakee kaikkia pelissä olevia hahmoja vastaavat Shape-oliot
+     * graafista käyttöliittymää varten.
+     *
+     * @return  lista, joka sisältää kaikkia pelissä olevia hahmoja
+     *          vastaavat Shape-oliot
+     */
     public List<Shape> getAliveShapes() {
         List<Shape> aliveShapes = new ArrayList();
 
@@ -99,6 +116,13 @@ public class Game {
         return aliveShapes;
     }
 
+    /**
+     * Hakee kaikkia pelistä poistettuja hahmoja vastaavat Shape-oliot
+     * graafista käyttöliittymää varten.
+     *
+     * @return  lista, joka sisältää kaikkia pelistä poistettuja hahmoja
+     *          vastaavat Shape-oliot
+     */
     public List<Shape> getRemovedShapes() {
         List<Shape> removedShapes = new ArrayList();
         for (GameCharacter gameChar : removed) {
@@ -107,18 +131,30 @@ public class Game {
         return removedShapes;
     }
 
+    /**
+     * Siirtää lasertykkiä vasemmalle, ellei se ole jo
+     * aivan peliruudun vasemmassa laidassa.
+     */
     public void moveGunLeft() {
         if (laserGun.getLocationX() > 10) {
             laserGun.moveLeft();
         }
     }
 
+    /**
+     * Siirtää lasertykkiä oikealle, ellei se ole jo
+     * aivan peliruudun oikeassa laidassa.
+     */
     public void moveGunRight() {
         if (laserGun.getLocationX() < size - 10) {
             laserGun.moveRight();
         }
     }
 
+    /**
+     * Metodi lasertykillä ampumiseen. Lisää peliin ammuksen,
+     * joka lähtee lasertykin sijaintipaikasta ampumishetkellä.
+     */
     public void shoot() {
         if (shots.size() < 1) {
             double locationX = laserGun.getLocationX();
@@ -126,6 +162,11 @@ public class Game {
         }
     }
 
+    /**
+     * Päivittää pelitilanteen. Siirtää pelihahmoja joiden liiikettä
+     * pelaaja ei itse ohjaile (avaruusoliot ja ammukset) ja poistaa
+     * kuolleet hahmot pelistä.
+     */
     public void update() {
         moveGunShots();
         moveAliens();
@@ -199,6 +240,11 @@ public class Game {
         }
     }
 
+    /**
+     * Tallentaa piste-ennätyksen DAO:n avulla.
+     *
+     * @throws Exception
+     */
     public void saveHiScore() throws Exception {
         hiScoreDao.saveScore(hiScore);
     }
