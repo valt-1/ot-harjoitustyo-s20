@@ -177,7 +177,7 @@ public class Game {
         rightAlienX += alienDirection * speed;
     }
 
-    public void removeDead() {
+    private void removeDead() {
         removed = new ArrayList();
 
         Iterator<Shot> shotIterator = shots.iterator();
