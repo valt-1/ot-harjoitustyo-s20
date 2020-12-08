@@ -4,6 +4,8 @@ Harjoitustyön aiheena on versio Space Invaders -pelistä, tarkempi toiminnalisu
 
 ## Dokumentaatio
 
+[Käyttöohje](dokumentaatio/kayttoohje.md)
+
 [Vaatimusmäärittely](dokumentaatio/vaatimusmaarittely.md)
 
 [Työaikakirjanpito](dokumentaatio/tuntikirjanpito.md)
