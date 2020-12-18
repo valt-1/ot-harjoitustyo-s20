@@ -1,0 +1,5 @@
+/**
+ * Pelihahmot
+ */
+
+package spaceinvaders.domain;
