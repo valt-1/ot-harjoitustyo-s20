@@ -25,8 +25,8 @@ public class GameTest {
 
     }
 
-    private StubDao stubDao = new StubDao();
-    private Game game;
+    StubDao stubDao = new StubDao();
+    Game game;
     double delta = 0.0001;
 
     @Before

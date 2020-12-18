@@ -1,15 +1,11 @@
 package spaceinvaders.domain;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class AlienTest {
 
-    private Alien alien;
+    Alien alien;
     double startLocationX = 100;
     double startLocationY = 100;
     double delta = 0.0001;

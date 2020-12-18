@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 
 public class LaserGunTest {
 
-    private LaserGun laserGun;
+    LaserGun laserGun;
     double startLocationX = 400;
     double startLocationY = 590;
     double delta = 0.0001;
