@@ -23,8 +23,6 @@ public class Game {
     private boolean won;
 
     private final LaserGun laserGun;
-    private double leftAlienX;
-    private double rightAlienX;
     private int alienDirection;
     private double speed;
     private List<Alien> aliens;
@@ -46,9 +44,6 @@ public class Game {
         this.over = false;
         this.won = false;
         this.laserGun = new LaserGun(size / 2, size);
-
-        this.leftAlienX = 0;
-        this.rightAlienX = 560;
         this.alienDirection = 1;
         this.speed = speed;
 
@@ -200,7 +195,15 @@ public class Game {
     }
 
     private void moveAliens() {
-        if (rightAlienX > size || leftAlienX < 0) {
+        boolean boundsReached = false;
+        for (Alien alien : aliens) {
+            if (alien.getLocationX() < 0 || alien.getLocationX() > size - 40) {
+                boundsReached = true;
+                break;
+            }
+        }
+
+        if (boundsReached) {
             alienDirection = alienDirection * -1;
             for (Alien alien : aliens) {
                 alien.moveDown();
@@ -213,9 +216,6 @@ public class Game {
         for (Alien alien : aliens) {
             alien.moveHorizontal(alienDirection, speed);
         }
-
-        leftAlienX += alienDirection * speed;
-        rightAlienX += alienDirection * speed;
     }
 
     private void removeDead() {
