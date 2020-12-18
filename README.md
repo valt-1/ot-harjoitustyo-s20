@@ -8,9 +8,9 @@ Harjoitustyön aiheena on versio Space Invaders -pelistä, tarkempi toiminnalisu
 
 [Vaatimusmäärittely](dokumentaatio/vaatimusmaarittely.md)
 
-[Työaikakirjanpito](dokumentaatio/tuntikirjanpito.md)
-
 [Arkkitehtuurikuvaus](dokumentaatio/arkkitehtuuri.md)
+
+[Työaikakirjanpito](dokumentaatio/tuntikirjanpito.md)
 
 ## Releaset
 
