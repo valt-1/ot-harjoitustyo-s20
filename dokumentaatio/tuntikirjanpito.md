@@ -25,4 +25,5 @@
 | 8.12. | 2 | dokumentaatio
 |       | 0,5 | konfiguraatiot
 |       | 1   | javadoc
-| yht.  | 24,5  |  |
+| 18.12.| 1,5 | testit
+| yht.  | 26  |  |
