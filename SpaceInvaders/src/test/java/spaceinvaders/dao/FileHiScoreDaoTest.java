@@ -23,22 +23,36 @@ public class FileHiScoreDaoTest {
     public void setUp() throws IOException {
         hiScoreFile = temporaryFolder.newFile("testfile.txt");
 
-        FileWriter file = new FileWriter(hiScoreFile);
-        file.write("130");
+        try (FileWriter file = new FileWriter(hiScoreFile)) {
+            file.write("130");
+        }
 
         dao = new FileHiScoreDao(hiScoreFile.getAbsolutePath());
     }
 
     @Test
+    public void hiScoreReadCorrectly() {
+        assertEquals(130, dao.getHiScore());
+    }
+
+    @Test
     public void hiScoreSavedCorrectly() throws Exception {
         dao.saveScore(420);
-        assertEquals(dao.getHiScore(), 420);
         Scanner reader = new Scanner(hiScoreFile);
         int hiScore = 0;
         while (reader.hasNextLine()) {
             hiScore = Integer.valueOf(reader.nextLine());
         }
+        assertEquals(dao.getHiScore(), 420);
         assertEquals(420, hiScore);
+    }
+
+    @Test
+    public void hiScoreZeroIfNoFile() throws IOException {
+        String file = hiScoreFile.getAbsolutePath();
+        hiScoreFile.delete();
+        dao = new FileHiScoreDao(file);
+        assertEquals(0, dao.getHiScore());
     }
 
     @After
