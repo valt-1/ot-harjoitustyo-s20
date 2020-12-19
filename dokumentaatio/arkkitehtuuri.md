@@ -1,7 +1,7 @@
 # Arkkitehtuurikuvaus
 
 ## Rakenne
-![Luokka- ja pakkauskaavio](https://raw.githubusercontent.com/behindthegroove/ot-harjoitustyo-s20/master/dokumentaatio/kuvat/luokkajapakkauskaavio.png)
+<img src="https://raw.githubusercontent.com/behindthegroove/ot-harjoitustyo-s20/master/dokumentaatio/kuvat/luokkajapakkauskaavio.png">
 
 ## Käyttöliittymä
 
@@ -16,4 +16,15 @@ Pelin logiikasta vastaa luokka _Game_.
 Sovellus tallentaa pelin parhaat pisteet tiedostoon. Tallentaminen on toteutettu Data Access Object -suunnittelumallia noudattaen: tallennuksesta huolehtii luokka _FileHiScoreDao_, joka on piilotettu rajapinnan _HiScoreDao_ taakse. Sovelluslogiikka käyttää vain rajapintaa HiScoreDao, joten tallennukselle on helppo tehdä tarvittaessa muitakin toteutuksia.
 
 ## Toiminnallisuudet
-![Sekvenssikaavio](https://raw.githubusercontent.com/behindthegroove/ot-harjoitustyo-s20/master/dokumentaatio/kuvat/sekvenssikaavio1.png)
+
+### Pelin aloittaminen
+
+<img src="https://raw.githubusercontent.com/behindthegroove/ot-harjoitustyo-s20/master/dokumentaatio/kuvat/sekvenssikaavio1.png">
+
+### Liikkuminen
+
+<img src="https://raw.githubusercontent.com/behindthegroove/ot-harjoitustyo-s20/master/dokumentaatio/kuvat/sekvenssikaavio2.png">
+
+### Ampuminen
+
+<img src="https://raw.githubusercontent.com/behindthegroove/ot-harjoitustyo-s20/master/dokumentaatio/kuvat/sekvenssikaavio3.png">
