@@ -30,7 +30,7 @@ Suoritettavan jar-tiedoston generointi:
 ```
 mvn package
 ```
-Suoritettava jar-tiedosto löytyy hakemistosta _target_ nimellä _SpaceInvaders-1.0-SNAPSHOT.jar_
+Generoitu jar-tiedosto löytyy hakemistosta _target_ nimellä _SpaceInvaders-1.0-SNAPSHOT.jar_
 
 ### Testaus
 
