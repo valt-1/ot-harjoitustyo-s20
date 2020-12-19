@@ -106,6 +106,13 @@ public class SpaceInvadersUi extends Application {
 
             new AnimationTimer() {
 
+                private void redrawGame() {
+                    gamePane.getChildren().removeAll(game.getRemovedShapes());
+
+                    gamePane.getChildren().removeAll(game.getAliveShapes());
+                    gamePane.getChildren().addAll(game.getAliveShapes());
+                }
+
                 @Override
                 public void handle(long now) {
                     game.update();
@@ -134,11 +141,7 @@ public class SpaceInvadersUi extends Application {
                         game.shoot();
                     }
 
-                    gamePane.getChildren().removeAll(game.getRemovedShapes());
-
-                    gamePane.getChildren().removeAll(game.getAliveShapes());
-                    gamePane.getChildren().addAll(game.getAliveShapes());
-
+                    redrawGame();
                 }
             }.start();
         });
