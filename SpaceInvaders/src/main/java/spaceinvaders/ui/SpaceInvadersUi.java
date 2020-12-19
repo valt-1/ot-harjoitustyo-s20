@@ -1,8 +1,10 @@
 package spaceinvaders.ui;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.animation.AnimationTimer;
@@ -30,9 +32,14 @@ public class SpaceInvadersUi extends Application {
 
     @Override
     public void init() throws IOException {
-        hiScoreDao = new FileHiScoreDao("hiscore.txt");
+        Properties properties = new Properties();
+        properties.load(new FileInputStream("config.properties"));
+        String hiScoreFile = properties.getProperty("hiScoreFile");
+        double alienSpeed = Double.valueOf(properties.getProperty("speed"));
+
+        hiScoreDao = new FileHiScoreDao(hiScoreFile);
         size = 800;
-        speed = 0.2;
+        speed = alienSpeed;
         game = new Game(hiScoreDao, size, speed);
     }
 
