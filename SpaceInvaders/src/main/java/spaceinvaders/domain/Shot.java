@@ -18,7 +18,7 @@ public class Shot extends GameCharacter {
     }
 
     /**
-     * Liikuttaa amusta ylöspäin.
+     * Liikuttaa ammusta ylöspäin.
      */
     public void moveUp() {
         this.setLocationY(this.getLocationY() - 3);
