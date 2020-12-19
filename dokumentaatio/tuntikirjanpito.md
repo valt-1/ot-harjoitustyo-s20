@@ -28,6 +28,6 @@
 | 18.12.| 1,5 | testit
 |       | 0,5 | dokumentaatio
 |       | 0,5 | bugikorjaus
-| 19.12.| 2   | dokumentaatio
-|       | 0,5 | testit
-| yht.  | 29,5  |  |
+| 19.12.| 0,5 | testit
+|       | 2,5 | dokumentaatio
+| yht.  | 30  |  |
