@@ -30,4 +30,5 @@
 |       | 0,5 | bugikorjaus
 | 19.12.| 0,5 | testit
 |       | 2,5 | dokumentaatio
-| yht.  | 30  |  |
+|       | 0,5 | refaktorointi
+| yht.  | 30,5  |  |
