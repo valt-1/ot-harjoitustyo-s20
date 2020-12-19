@@ -209,14 +209,14 @@ public class Game {
     }
 
     private void moveAliens() {
-        checkIfBoundsReached();
+        checkIfAliensReachBounds();
 
         for (Alien alien : aliens) {
             alien.moveHorizontal(alienDirection, speed);
         }
     }
 
-    private void checkIfBoundsReached() {
+    private void checkIfAliensReachBounds() {
         boolean boundsReached = false;
 
         for (Alien alien : aliens) {
