@@ -14,24 +14,32 @@ public class GameTest {
 
     public class StubDao implements HiScoreDao {
 
+        private int hiScore;
+
+        public StubDao() {
+            hiScore = 200;
+        }
+
         @Override
         public int getHiScore() {
-            return 200;
+            return hiScore;
         }
 
         @Override
         public void saveScore(int score) throws Exception {
+            hiScore = score;
         }
 
     }
 
     StubDao stubDao = new StubDao();
     Game game;
+    double speed = 1;
     double delta = 0.0001;
 
     @Before
     public void setUp() {
-        game = new Game(stubDao, 800, 800);
+        game = new Game(stubDao, 800, speed);
     }
 
     @Test
@@ -44,6 +52,35 @@ public class GameTest {
     @Test
     public void startScoreIsZero() {
         assertEquals(0, game.getScore(), delta);
+    }
+
+    @Test
+    public void startHiScoreIsCorrect() {
+        assertEquals(stubDao.getHiScore(), game.getHiScore());
+    }
+
+    @Test
+    public void moveGunRightWorksCorrectly() {
+        double oldLocation = game.getLaserGunShape().getTranslateX();
+        game.moveGunRight();
+        double newLocation = game.getLaserGunShape().getTranslateX();
+        assertEquals(oldLocation + speed, newLocation, delta);
+    }
+
+    @Test
+    public void moveGunLeftWorksCorrectly() {
+        double oldLocation = game.getLaserGunShape().getTranslateX();
+        game.moveGunLeft();
+        double newLocation = game.getLaserGunShape().getTranslateX();
+        assertEquals(oldLocation - speed, newLocation, delta);
+    }
+
+    @Test
+    public void shootWorksCorrectly() {
+        double gunLocation = game.getLaserGunShape().getTranslateX();
+        game.shoot();
+        double shotLocation = game.getShots().get(0).getLocationX();
+        assertEquals(gunLocation, shotLocation, delta);
     }
 
     @Test
@@ -69,6 +106,16 @@ public class GameTest {
         }
 
         assertTrue(moved);
+    }
+
+    @Test
+    public void alienDirectionChangedCorrectly() {
+        for (int i = 0; i < game.getSize(); i++) {
+            game.update();
+        }
+        double location = game.getAliens().get(0).getLocationX();
+        assertTrue(location <= game.getSize());
+        assertTrue(location >= 0);
     }
 
     @Test
