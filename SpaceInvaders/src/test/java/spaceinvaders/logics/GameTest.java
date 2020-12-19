@@ -79,7 +79,7 @@ public class GameTest {
     public void shootWorksCorrectly() {
         double gunLocation = game.getLaserGunShape().getTranslateX();
         game.shoot();
-        double shotLocation = game.getShots().get(0).getLocationX();
+        double shotLocation = game.getGunShot().getLocationX();
         assertEquals(gunLocation, shotLocation, delta);
     }
 
@@ -121,7 +121,7 @@ public class GameTest {
     @Test
     public void scoreIncrementedIfShotHitsAlien() {
         game.getAliens().add(new Alien(20, 20));
-        game.getShots().add(new Shot(20, 21));
+        game.setGunShot(new Shot(20, 21));
         game.update();
         assertEquals(10, game.getScore());
     }
@@ -130,7 +130,7 @@ public class GameTest {
     public void alienRemovedWhenHit() {
         Alien alien = new Alien(20, 20);
         game.getAliens().add(alien);
-        game.getShots().add(new Shot(20, 21));
+        game.setGunShot(new Shot(20, 21));
         game.update();
         assertFalse(game.getAliens().contains(alien));
     }

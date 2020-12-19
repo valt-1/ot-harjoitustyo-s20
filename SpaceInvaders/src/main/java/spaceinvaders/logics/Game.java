@@ -26,7 +26,7 @@ public class Game {
     private int alienDirection;
     private double speed;
     private List<Alien> aliens;
-    private List<Shot> shots;
+    private Shot gunShot;
     private List<GameCharacter> removed;
 
     /**
@@ -48,13 +48,18 @@ public class Game {
         this.speed = speed;
 
         this.aliens = new ArrayList();
+        int width = 30;
+        int height = 20;
+        int spacing = 20;
         for (int i = 0; i < 11; i++) {
             for (int j = 0; j < 5; j++) {
-                this.aliens.add(new Alien(10 + i * (20 + 30), 60 + j * (20 + 20)));
+                double x = 10 + i * (width + spacing);
+                double y = 60 + j * (height + spacing);
+                this.aliens.add(new Alien(x, y));
             }
         }
 
-        this.shots = new ArrayList();
+        this.gunShot = null;
         this.removed = new ArrayList();
     }
 
@@ -86,8 +91,12 @@ public class Game {
         return aliens;
     }
 
-    public List<Shot> getShots() {
-        return shots;
+    public Shot getGunShot() {
+        return gunShot;
+    }
+
+    public void setGunShot(Shot gunShot) {
+        this.gunShot = gunShot;
     }
 
     /**
@@ -104,8 +113,8 @@ public class Game {
             aliveShapes.add(alien.getShape());
         }
 
-        for (Shot shot : shots) {
-            aliveShapes.add(shot.getShape());
+        if (gunShot != null) {
+            aliveShapes.add(gunShot.getShape());
         }
 
         return aliveShapes;
@@ -151,9 +160,9 @@ public class Game {
      * joka lähtee lasertykin sijaintipaikasta ampumishetkellä.
      */
     public void shoot() {
-        if (shots.size() < 1) {
+        if (gunShot == null) {
             double locationX = laserGun.getLocationX();
-            shots.add(new Shot(locationX, size - 30));
+            gunShot = new Shot(locationX, size - 30);
         }
     }
 
@@ -163,7 +172,7 @@ public class Game {
      * kuolleet hahmot pelistä.
      */
     public void update() {
-        moveGunShots();
+        moveGunShot();
         moveAliens();
         removeDead();
 
@@ -176,26 +185,40 @@ public class Game {
         }
     }
 
-    private void moveGunShots() {
-        for (Shot shot : shots) {
-            if (shot.getLocationY() < 0) {
-                shot.setAlive(false);
-            }
+    private void moveGunShot() {
+        if (gunShot == null) {
+            return;
+        }
 
-            shot.moveUp();
+        if (gunShot.getLocationY() < 0) {
+            gunShot.setAlive(false);
+        }
 
-            for (Alien alien : aliens) {
-                if (shot.hits(alien)) {
-                    alien.setAlive(false);
-                    shot.setAlive(false);
-                    score += 10;
-                }
+        gunShot.moveUp();
+        checkIfAliensHit();
+    }
+
+    private void checkIfAliensHit() {
+        for (Alien alien : aliens) {
+            if (gunShot.hits(alien)) {
+                alien.setAlive(false);
+                gunShot.setAlive(false);
+                score += 10;
             }
         }
     }
 
     private void moveAliens() {
+        checkIfBoundsReached();
+
+        for (Alien alien : aliens) {
+            alien.moveHorizontal(alienDirection, speed);
+        }
+    }
+
+    private void checkIfBoundsReached() {
         boolean boundsReached = false;
+
         for (Alien alien : aliens) {
             if (alien.getLocationX() < 0 || alien.getLocationX() > size - 40) {
                 boundsReached = true;
@@ -212,22 +235,14 @@ public class Game {
                 }
             }
         }
-
-        for (Alien alien : aliens) {
-            alien.moveHorizontal(alienDirection, speed);
-        }
     }
 
     private void removeDead() {
         removed = new ArrayList();
 
-        Iterator<Shot> shotIterator = shots.iterator();
-        while (shotIterator.hasNext()) {
-            Shot shot = shotIterator.next();
-            if (!shot.isAlive()) {
-                removed.add(shot);
-                shotIterator.remove();
-            }
+        if (gunShot != null && !gunShot.isAlive()) {
+            removed.add(gunShot);
+            gunShot = null;
         }
 
         Iterator<Alien> alienIterator = aliens.iterator();
