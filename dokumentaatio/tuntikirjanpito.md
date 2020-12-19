@@ -28,5 +28,5 @@
 | 18.12.| 1,5 | testit
 |       | 0,5 | dokumentaatio
 |       | 0,5 | bugikorjaus
-| 19.12.| 1,5 | dokumentaatio
-| yht.  | 28,5  |  |
+| 19.12.| 2   | dokumentaatio
+| yht.  | 29  |  |
