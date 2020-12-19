@@ -1,6 +1,8 @@
-# Ohjelmistotekniikka, harjoitustyö
+# Space Invaders
 
-Harjoitustyön aiheena on versio Space Invaders -pelistä, tarkempi toiminnalisuus selviää [vaatimusmäärittelystä](dokumentaatio/vaatimusmaarittely.md). Pelaaja voi liikkua nuolinäppäimillä ja ampua painamalla välilyöntiä, tarkemmat ohjeet sovelluksen käyttöön [täällä](dokumentaatio/kayttoohje.md).
+Sovellus on versio Space Invaders -pelistä, ja sen on tehty harjoitustyönä Helsingin yliopiston Tietojenkäsittelytieteen osaston kurssilla Ohjelmistotekniikka.
+
+Pelin toiminnalisuus selviää [vaatimusmäärittelystä](dokumentaatio/vaatimusmaarittely.md). Ohjeet sovelluksen käyttöön [täällä](dokumentaatio/kayttoohje.md).
 
 ## Dokumentaatio
 
@@ -9,6 +11,8 @@ Harjoitustyön aiheena on versio Space Invaders -pelistä, tarkempi toiminnalisu
 [Vaatimusmäärittely](dokumentaatio/vaatimusmaarittely.md)
 
 [Arkkitehtuurikuvaus](dokumentaatio/arkkitehtuuri.md)
+
+[Testausdokumentti](dokumentaatio/testaus.md)
 
 [Työaikakirjanpito](dokumentaatio/tuntikirjanpito.md)
 
