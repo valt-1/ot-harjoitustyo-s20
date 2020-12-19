@@ -29,4 +29,5 @@
 |       | 0,5 | dokumentaatio
 |       | 0,5 | bugikorjaus
 | 19.12.| 2   | dokumentaatio
-| yht.  | 29  |  |
+|       | 0,5 | testit
+| yht.  | 29,5  |  |
