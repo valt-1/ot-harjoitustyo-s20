@@ -1,11 +1,20 @@
 # Käyttöohje
 
+Lataa tiedosto SpaceInvaders.jar
+
 ## Konfigurointi
 
 Sovellus olettaa että sen käynnistyshakemistossa on tiedosto _config.properties_. Kyseisessä konfiguraatiotiedostossa määritellään nimi tiedostollle, johon hiscore tallennetaan, sekä pelin nopeus. Konfiguraatiotiedoston sisältö on muotoa
 ```
 hiScoreFile=hiscore.txt
 speed=0.2
+```
+
+## Käynnistäminen
+
+Käynnistä ohjelma komennolla
+```
+java -jar SpaceInvaders.jar
 ```
 
 ## Pelin aloittaminen
