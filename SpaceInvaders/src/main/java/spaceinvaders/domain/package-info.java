@@ -1,5 +1,5 @@
 /**
- * Pelihahmot
+ * Pelihahmot.
  */
 
 package spaceinvaders.domain;

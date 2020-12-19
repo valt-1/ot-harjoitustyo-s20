@@ -1,5 +1,5 @@
 /**
- * Tiedon pysyväistallennus
+ * Tiedon pysyväistallennus.
  */
 
 package spaceinvaders.dao;
