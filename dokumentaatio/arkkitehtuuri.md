@@ -1,6 +1,9 @@
 # Arkkitehtuurikuvaus
 
 ## Rakenne
+
+Ohjelman luokka- ja pakkausrakenne on seuraavanlainen:
+
 <img src="https://raw.githubusercontent.com/behindthegroove/ot-harjoitustyo-s20/master/dokumentaatio/kuvat/luokkajapakkauskaavio.png">
 
 ## Käyttöliittymä
@@ -15,7 +18,7 @@ Sovelluslogiikka huolehtii siitä, etteivät pelihahmot ohjaudu peliruudun ulkop
 
 ## Tietojen pysyväistallennus
 
-Sovellus tallentaa pelin parhaat pisteet tiedostoon. Tallentaminen on toteutettu Data Access Object -suunnittelumallia noudattaen: tallennuksesta huolehtii luokka _FileHiScoreDao_, joka on piilotettu rajapinnan _HiScoreDao_ taakse. Sovelluslogiikka käyttää vain rajapintaa HiScoreDao, joten tallennukselle on helppo tehdä tarvittaessa muitakin toteutuksia.
+Sovellus tallentaa pelin parhaat pisteet tiedostoon, jonka nimi määritellään sovelluksen juuressa sijaitsevassa konfiguraatiotiedostossa _config.properties_. Tallentaminen on toteutettu Data Access Object -suunnittelumallia noudattaen: tallennuksesta huolehtii luokka _FileHiScoreDao_, joka on piilotettu rajapinnan _HiScoreDao_ taakse. Sovelluslogiikka käyttää vain rajapintaa HiScoreDao, joten tallennukselle on helppo tehdä tarvittaessa muitakin toteutuksia.
 
 ## Päätoiminnallisuudet
 
