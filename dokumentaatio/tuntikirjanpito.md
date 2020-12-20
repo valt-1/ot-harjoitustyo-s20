@@ -32,6 +32,7 @@
 |       | 2,5 | dokumentaatio
 |       | 0,5 | refaktorointi
 |       | 1   | avaruusolioiden ammusten toteutus
-| 20.12.| 0,5 | testaus
-|       | 1 | dokumentaatio
-| yht.  | 33,5  |  |
+| 20.12.| 1   | testaus
+|       | 0,5 | bugikorjaus
+|       | 1   | dokumentaatio
+| yht.  | 34,5  |  |
