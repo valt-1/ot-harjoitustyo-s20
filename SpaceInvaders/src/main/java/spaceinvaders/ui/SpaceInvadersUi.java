@@ -1,17 +1,16 @@
 package spaceinvaders.ui;
 
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
@@ -30,22 +29,35 @@ public class SpaceInvadersUi extends Application {
     private double size;
     private double speed;
     private Game game;
+    private boolean exceptionInInit = false;
 
     @Override
-    public void init() throws IOException {
-        Properties properties = new Properties();
-        properties.load(new FileInputStream("config.properties"));
-        String hiScoreFile = properties.getProperty("hiScoreFile");
-        double alienSpeed = Double.valueOf(properties.getProperty("speed"));
+    public void init() {
+        try {
+            Properties properties = new Properties();
+            properties.load(new FileInputStream("config.properties"));
+            String hiScoreFile = properties.getProperty("hiScoreFile");
+            double alienSpeed = Double.valueOf(properties.getProperty("speed"));
 
-        hiScoreDao = new FileHiScoreDao(hiScoreFile);
-        size = 800;
-        speed = alienSpeed;
-        game = new Game(hiScoreDao, size, speed);
+            hiScoreDao = new FileHiScoreDao(hiScoreFile);
+            size = 800;
+            speed = alienSpeed;
+            game = new Game(hiScoreDao, size, speed);
+        } catch (Exception ex) {
+            exceptionInInit = true;
+        }
     }
 
     @Override
     public void start(Stage stage) {
+        if (exceptionInInit) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setContentText("Virhe ohjelman alustuksessa.");
+            alert.showAndWait();
+            Platform.exit();
+            return;
+        }
+
         // Start scene
         StackPane startPane = new StackPane();
         startPane.setPrefSize(size, size + 20);
@@ -169,7 +181,9 @@ public class SpaceInvadersUi extends Application {
             try {
                 game.saveHiScore();
             } catch (Exception ex) {
-                Logger.getLogger(SpaceInvadersUi.class.getName()).log(Level.SEVERE, null, ex);
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setContentText("Virhe pisteiden tallennuksessa");
+                alert.showAndWait();
             }
             stage.setScene(startScene);
         });
