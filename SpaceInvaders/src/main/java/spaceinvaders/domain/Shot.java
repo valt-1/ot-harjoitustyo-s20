@@ -19,16 +19,18 @@ public class Shot extends GameCharacter {
 
     /**
      * Liikuttaa ammusta ylöspäin.
+     * @param speed     liikeen nopeus
      */
-    public void moveUp() {
-        this.setLocationY(this.getLocationY() - 3);
+    public void moveUp(double speed) {
+        this.setLocationY(this.getLocationY() - speed);
     }
 
     /**
      * Liikuttaa ammusta alaspäin.
+     * @param speed     liikkeen nopeus
      */
-    public void moveDown() {
-        this.setLocationY(this.getLocationY() + 3);
+    public void moveDown(double speed) {
+        this.setLocationY(this.getLocationY() + speed);
     }
 
 }

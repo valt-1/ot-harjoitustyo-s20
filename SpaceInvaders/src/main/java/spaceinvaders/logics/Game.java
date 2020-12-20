@@ -25,7 +25,9 @@ public class Game {
     private boolean won;
     private final LaserGun laserGun;
     private int alienDirection;
-    private double speed;
+    private double alienSpeed;
+    private double gunSpeed;
+    private double shotSpeed;
     private List<Alien> aliens;
     private Shot gunShot;
     private Shot alienShot;
@@ -37,9 +39,12 @@ public class Game {
      *
      * @param hiScoreDao    DAO piste-ennätyksen tallentamista varten
      * @param size          peliruudun koko
-     * @param speed         pelin vihollisten liikenopeus
+     * @param alienSpeed    pelin vihollisten liikenopeus
+     * @param gunSpeed      lasertykin liikenopeus
+     * @param shotSpeed     ammusten liikenopeus
      */
-    public Game(HiScoreDao hiScoreDao, double size, double speed) {
+    public Game(HiScoreDao hiScoreDao, double size,
+            double alienSpeed, double gunSpeed, double shotSpeed) {
         this.hiScoreDao = hiScoreDao;
         this.size = size;
         this.score = 0;
@@ -49,7 +54,9 @@ public class Game {
         this.won = false;
         this.laserGun = new LaserGun(size / 2, size);
         this.alienDirection = 1;
-        this.speed = speed;
+        this.alienSpeed = alienSpeed;
+        this.gunSpeed = gunSpeed;
+        this.shotSpeed = shotSpeed;
 
         this.aliens = new ArrayList();
         int width = 30;
@@ -65,7 +72,7 @@ public class Game {
 
         this.gunShot = null;
         this.alienShot = null;
-        this.alienShotTimer = 0;
+        this.alienShotTimer = System.nanoTime();
         this.removed = new ArrayList();
     }
 
@@ -159,7 +166,7 @@ public class Game {
      */
     public void moveGunLeft() {
         if (laserGun.getLocationX() > 10) {
-            laserGun.moveLeft();
+            laserGun.moveLeft(gunSpeed);
         }
     }
 
@@ -169,7 +176,7 @@ public class Game {
      */
     public void moveGunRight() {
         if (laserGun.getLocationX() < size - 10) {
-            laserGun.moveRight();
+            laserGun.moveRight(gunSpeed);
         }
     }
 
@@ -190,10 +197,10 @@ public class Game {
      * kuolleet hahmot pelistä.
      */
     public void update() {
-        alienShotTimer++;
-        if (alienShot == null && alienShotTimer > 300) {
+        long now = System.nanoTime();
+        if (alienShot == null && now - alienShotTimer > 750_000_000) {
             randomAlienShoots();
-            alienShotTimer = 0;
+            alienShotTimer = System.nanoTime();
         }
         moveGunShot();
         moveAlienShot();
@@ -226,7 +233,7 @@ public class Game {
             gunShot.setAlive(false);
         }
 
-        gunShot.moveUp();
+        gunShot.moveUp(shotSpeed);
         checkIfAliensHit();
     }
 
@@ -249,7 +256,7 @@ public class Game {
             alienShot.setAlive(false);
         }
 
-        alienShot.moveDown();
+        alienShot.moveDown(shotSpeed);
         checkIfLaserGunHit();
     }
 
@@ -268,7 +275,7 @@ public class Game {
         checkIfAliensReachBounds();
 
         for (Alien alien : aliens) {
-            alien.moveHorizontal(alienDirection, speed);
+            alien.moveHorizontal(alienDirection, alienSpeed);
         }
     }
 

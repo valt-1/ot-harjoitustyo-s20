@@ -19,15 +19,17 @@ public class LaserGun extends GameCharacter {
 
     /**
      * Liikuttaa hahmoa vasemmalle.
+     * @param speed     liikkeen nopeus
      */
-    public void moveLeft() {
-        this.setLocationX(this.getLocationX() - 1);
+    public void moveLeft(double speed) {
+        this.setLocationX(this.getLocationX() - speed);
     }
 
     /**
      * Liikuttaa hahmoa oikealle.
+     * @param speed     liikkeen nopeus
      */
-    public void moveRight() {
-        this.setLocationX(this.getLocationX() + 1);
+    public void moveRight(double speed) {
+        this.setLocationX(this.getLocationX() + speed);
     }
 }

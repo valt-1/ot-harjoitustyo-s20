@@ -27,7 +27,9 @@ public class SpaceInvadersUi extends Application {
 
     private HiScoreDao hiScoreDao;
     private double size;
-    private double speed;
+    private double alienSpeed;
+    private double gunSpeed;
+    private double shotSpeed;
     private Game game;
     private boolean exceptionInInit = false;
     private AnimationTimer timer;
@@ -37,13 +39,13 @@ public class SpaceInvadersUi extends Application {
         try {
             Properties properties = new Properties();
             properties.load(new FileInputStream("config.properties"));
-            String hiScoreFile = properties.getProperty("hiScoreFile");
-            double alienSpeed = Double.valueOf(properties.getProperty("speed"));
 
-            hiScoreDao = new FileHiScoreDao(hiScoreFile);
+            hiScoreDao = new FileHiScoreDao(properties.getProperty("hiScoreFile"));
             size = 800;
-            speed = alienSpeed;
-            game = new Game(hiScoreDao, size, speed);
+            alienSpeed = Double.valueOf(properties.getProperty("alienSpeed"));
+            gunSpeed = Double.valueOf(properties.getProperty("gunSpeed"));
+            shotSpeed = Double.valueOf(properties.getProperty("shotSpeed"));
+            game = new Game(hiScoreDao, size, alienSpeed, gunSpeed, shotSpeed);
         } catch (Exception ex) {
             exceptionInInit = true;
         }
@@ -110,7 +112,7 @@ public class SpaceInvadersUi extends Application {
         start.setOnAction(e -> {
             gameStatus.setText("");
             gamePane.getChildren().clear();
-            game = new Game(hiScoreDao, size, speed);
+            game = new Game(hiScoreDao, size, alienSpeed, gunSpeed, shotSpeed);
             stage.setScene(gameScene);
 
             hiScore.setText("HiScore: " + game.getHiScore());
