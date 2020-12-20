@@ -12,7 +12,7 @@ DAO-luokan _FileHiScoreDao_ testaus on toteutettu tilapäisellä tiedostolla, jo
 
 ### Testikattavuus
 
-<img src="https://raw.githubusercontent.com/behindthegroove/ot-harjoitustyo-s20/master/dokumentaatio/kuvat/testikattavuus.png">
+<img src="https://raw.githubusercontent.com/behindthegroove/ot-harjoitustyo-s20/master/dokumentaatio/kuvat/testikattavuus1.png">
 
 ## Järjestelmätestaus
 
