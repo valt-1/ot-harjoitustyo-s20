@@ -34,5 +34,5 @@
 |       | 1   | avaruusolioiden ammusten toteutus
 | 20.12.| 1   | testaus
 |       | 0,5 | bugikorjaus
-|       | 1   | dokumentaatio
-| yht.  | 34,5  |  |
+|       | 1,5 | dokumentaation päivitys
+| yht.  | 35  |  |
