@@ -18,4 +18,4 @@ DAO-luokan _FileHiScoreDao_ testaus on toteutettu tilapäisellä tiedostolla, jo
 
 Sovellusta on järjestelmätestattu manuaalisesti käymällä läpi määrittelydokumentissa luetellut toiminnallisuudet.
 
-Testausta on suoritettu tilanteissa, joissa sovelluksen käyttämä tallennustiedosto on ollut olemassa, ja myös siten että tiedostoa ei ole ollut valmiina. Sovellusta on testattu myös oletuskonfiguraatioista poikkeavilla asetuksilla, jolloin tiedoston _config.properties_ sisältöä on muokattu ennen manuaalista testaamista.
+Testausta on suoritettu tilanteissa, joissa sovelluksen käyttämä tallennustiedosto on ollut olemassa, ja myös siten että tiedostoa ei ole ollut valmiina. Sovellusta on testattu myös oletuskonfiguraatioista poikkeavilla asetuksilla, jolloin tiedoston _config.properties_ sisältöä on muokattu ennen testaamista. Testausta on suoritettu myös tilanteissa, joissa konfiguraatiotiedosto puuttuu tai sen sisältö on virheellinen.
