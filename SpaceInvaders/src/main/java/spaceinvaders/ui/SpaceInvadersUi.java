@@ -18,6 +18,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import spaceinvaders.dao.FileHiScoreDao;
 import spaceinvaders.dao.HiScoreDao;
@@ -48,6 +49,10 @@ public class SpaceInvadersUi extends Application {
         // Start scene
         StackPane startPane = new StackPane();
         startPane.setPrefSize(size, size + 20);
+        Label gameInfo = new Label("Shoot the aliens before they invade our planet!");
+        gameInfo.setTranslateY(-size / 10);
+        gameInfo.setTextAlignment(TextAlignment.CENTER);
+        startPane.getChildren().add(gameInfo);
         Scene startScene = new Scene(startPane);
 
         // Game scene
@@ -128,7 +133,14 @@ public class SpaceInvadersUi extends Application {
                     }
 
                     score.setText("Score: " + game.getScore());
-                    lives.setText("Lives: " + game.getLives());
+                    String livesText = "Lives: " + game.getLives();
+                    if (game.getLives() == 2) {
+                        livesText += " OUCH!!";
+                    }
+                    if (game.getLives() == 1) {
+                        livesText += " WATCH OUT!!!";
+                    }
+                    lives.setText(livesText);
 
                     if (pressedKeys.getOrDefault(KeyCode.LEFT, Boolean.FALSE)) {
                         game.moveGunLeft();
