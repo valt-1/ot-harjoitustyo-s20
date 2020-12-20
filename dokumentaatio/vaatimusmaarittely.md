@@ -9,26 +9,25 @@ Viholliset liikkuvat rivistönä edestakaisin ruudun vasemman ja oikean reunan v
 ## Toiminnallisuus
 
 ### Sovelluksen käynnistyessä
-- käyttäjä näkee hiscoren ja lyhyen ohjeen peliin
-- käyttäjä voi aloittaa peliin __tehty__
+- käyttäjä voi aloittaa peliin
 
 ### Pelin aikana
-- käyttäjä voi liikuttaa lasertykkiä vasemmalle tai oikealle __tehty__
-- käyttäjä voi ampua ylöspäin __tehty__
-    - jos osuu avaruusolioon, olio katoaa ruudulta ja pelaaja saa pisteitä __tehty__
-- avaruusoliot liikkuvat __tehty__
-- avaruusoliot ampuvat
-- käyttäjä näkee pelin aikana kertyneet pisteet __tehty__
-- käyttäjä näkee hiscoren __tehty__
+- käyttäjä voi liikuttaa lasertykkiä vasemmalle tai oikealle
+- käyttäjä voi ampua ylöspäin
+    - jos osuu avaruusolioon, olio katoaa ruudulta ja pelaaja saa pisteitä
+- avaruusoliot liikkuvat
+- avaruusoliot ampuvat alaspäin
+- käyttäjä näkee pelin aikana kertyneet pisteet
+- käyttäjä näkee hiscoren
 - käyttäjä näkee jäljellä olevat elämät
     - jos avaruusolion ammus osuu lasertykkiin, pelaaja menettää elämän
-- käyttäjä voi lopettaa pelin kesken __tehty__
+- käyttäjä voi lopettaa pelin kesken
 - käyttäjä voi pelata kunnes avaruusoliot saavuttavat ruudun alalaidan, elämät loppuvat tai kaikki avaruusoliot on tuhottu
 
 ### Pelin päätyttyä
-- käyttäjä näkee pelin aikana kertyneet pisteet ja hiscoren
-- jos hiscore ylitettiin, tallennetaan uusi hiscore __tehty__
-- käyttäjä voi aloittaa uuden pelin
+- käyttäjä näkee ilmoituksen pelin päättymisestä ja pelin aikana kertyneet pisteet
+- jos hiscore ylitettiin, tallennetaan uusi hiscore
+- käyttäjä voi palata aloitusnäkymään
 
 
 ## Jatkokehitysideoita
