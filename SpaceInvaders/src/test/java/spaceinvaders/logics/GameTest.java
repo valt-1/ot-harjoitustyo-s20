@@ -32,21 +32,14 @@ public class GameTest {
 
     }
 
-    StubDao stubDao = new StubDao();
+    StubDao dao = new StubDao();
     Game game;
     double speed = 1;
     double delta = 0.0001;
 
     @Before
     public void setUp() {
-        game = new Game(stubDao, 800, speed);
-    }
-
-    @Test
-    public void constructorSetsCorrectSize() {
-        Game newGame = new Game(stubDao, 400, 400);
-        assertEquals(400, newGame.getSize(), delta);
-        assertEquals(400, newGame.getSize(), delta);
+        game = new Game(dao, 800, speed);
     }
 
     @Test
@@ -56,7 +49,7 @@ public class GameTest {
 
     @Test
     public void startHiScoreIsCorrect() {
-        assertEquals(stubDao.getHiScore(), game.getHiScore());
+        assertEquals(dao.getHiScore(), game.getHiScore());
     }
 
     @Test
@@ -73,6 +66,24 @@ public class GameTest {
         game.moveGunLeft();
         double newLocation = game.getLaserGunShape().getTranslateX();
         assertEquals(oldLocation - speed, newLocation, delta);
+    }
+
+    @Test
+    public void laserGunStopsAtRightEdge() {
+        for (int i = 0; i < game.getSize() + 100; i++) {
+            game.moveGunRight();
+        }
+        double location = game.getLaserGunShape().getTranslateX();
+        assertFalse(location > game.getSize());
+    }
+
+    @Test
+    public void laserGunStopsAtLeftEdge() {
+        for (int i = 0; i < game.getSize() + 100; i++) {
+            game.moveGunLeft();
+        }
+        double location = game.getLaserGunShape().getTranslateX();
+        assertFalse(location < 0);
     }
 
     @Test
@@ -120,9 +131,7 @@ public class GameTest {
 
     @Test
     public void scoreIncrementedIfShotHitsAlien() {
-        game.getAliens().add(new Alien(20, 20));
-        game.setGunShot(new Shot(20, 21));
-        game.update();
+        shootAlien();
         assertEquals(10, game.getScore());
     }
 
@@ -135,4 +144,19 @@ public class GameTest {
         assertFalse(game.getAliens().contains(alien));
     }
 
+    @Test
+    public void hiScoreSavedCorrectly() throws Exception {
+        int times = game.getHiScore() / 10 + 1;
+        for (int i = 0; i < times; i++) {
+            shootAlien();
+        }
+        game.saveHiScore();
+        assertEquals(times * 10, dao.getHiScore(), delta);
+    }
+
+    private void shootAlien() {
+        game.getAliens().add(new Alien(20, 20));
+        game.setGunShot(new Shot(20, 21));
+        game.update();
+    }
 }
