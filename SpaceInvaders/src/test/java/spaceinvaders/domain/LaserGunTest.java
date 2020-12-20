@@ -10,6 +10,7 @@ public class LaserGunTest {
     double startLocationX = 400;
     double startLocationY = 590;
     double delta = 0.0001;
+    double speed = 1;
 
     @Before
     public void setUp() {
@@ -18,25 +19,25 @@ public class LaserGunTest {
 
     @Test
     public void moveLeftMovesInCorrectDirection() {
-        laserGun.moveLeft();
+        laserGun.moveLeft(speed);
         assertTrue(laserGun.getLocationX() < startLocationX);
     }
 
     @Test
     public void moveLeftDoesNotChangeCoordinateY() {
-        laserGun.moveLeft();
+        laserGun.moveLeft(speed);
         assertEquals(startLocationY, laserGun.getLocationY(), delta);
     }
 
     @Test
     public void moveRightMovesInCorrectDirection() {
-        laserGun.moveRight();
+        laserGun.moveRight(speed);
         assertTrue(laserGun.getLocationX() > startLocationX);
     }
 
     @Test
     public void moveRightDoesNotChangeCoordinateY() {
-        laserGun.moveRight();
+        laserGun.moveRight(speed);
         assertEquals(startLocationY, laserGun.getLocationY(), delta);
     }
 }

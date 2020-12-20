@@ -34,12 +34,14 @@ public class GameTest {
 
     StubDao dao = new StubDao();
     Game game;
-    double speed = 1;
+    double alienSpeed = 1;
+    double gunSpeed = 1;
+    double shotSpeed = 3;
     double delta = 0.0001;
 
     @Before
     public void setUp() {
-        game = new Game(dao, 800, speed);
+        game = new Game(dao, 800, alienSpeed, gunSpeed, shotSpeed);
     }
 
     @Test
@@ -57,7 +59,7 @@ public class GameTest {
         double oldLocation = game.getLaserGunShape().getTranslateX();
         game.moveGunRight();
         double newLocation = game.getLaserGunShape().getTranslateX();
-        assertEquals(oldLocation + speed, newLocation, delta);
+        assertEquals(oldLocation + alienSpeed, newLocation, delta);
     }
 
     @Test
@@ -65,7 +67,7 @@ public class GameTest {
         double oldLocation = game.getLaserGunShape().getTranslateX();
         game.moveGunLeft();
         double newLocation = game.getLaserGunShape().getTranslateX();
-        assertEquals(oldLocation - speed, newLocation, delta);
+        assertEquals(oldLocation - alienSpeed, newLocation, delta);
     }
 
     @Test
