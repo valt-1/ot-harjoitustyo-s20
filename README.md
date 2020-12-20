@@ -18,6 +18,8 @@ Pelin toiminnalisuus selviää [vaatimusmäärittelystä](dokumentaatio/vaatimus
 
 ## Releaset
 
+[Loppupalautus](https://github.com/behindthegroove/ot-harjoitustyo-s20/releases/tag/loppupalautus)
+
 [Viikko 6](https://github.com/behindthegroove/ot-harjoitustyo-s20/releases/tag/viikko6)
 
 [Viikko 5](https://github.com/behindthegroove/ot-harjoitustyo-s20/releases/tag/viikko5)
