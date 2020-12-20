@@ -1,6 +1,7 @@
 package spaceinvaders.ui;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -31,7 +32,7 @@ public class SpaceInvadersUi extends Application {
     private double gunSpeed;
     private double shotSpeed;
     private Game game;
-    private boolean exceptionInInit = false;
+    private String initErrorMessage = null;
     private AnimationTimer timer;
 
     @Override
@@ -46,16 +47,18 @@ public class SpaceInvadersUi extends Application {
             gunSpeed = Double.valueOf(properties.getProperty("gunSpeed"));
             shotSpeed = Double.valueOf(properties.getProperty("shotSpeed"));
             game = new Game(hiScoreDao, size, alienSpeed, gunSpeed, shotSpeed);
+        } catch (FileNotFoundException ex) {
+            initErrorMessage = "File config.properties not found";
         } catch (Exception ex) {
-            exceptionInInit = true;
+            initErrorMessage = "Error in initializing program";
         }
     }
 
     @Override
     public void start(Stage stage) {
-        if (exceptionInInit) {
+        if (initErrorMessage != null) {
             Alert alert = new Alert(AlertType.ERROR);
-            alert.setContentText("Error in initializing program");
+            alert.setContentText(initErrorMessage);
             alert.showAndWait();
             Platform.exit();
             return;
