@@ -9,7 +9,8 @@ Viholliset liikkuvat rivistönä edestakaisin ruudun vasemman ja oikean reunan v
 ## Toiminnallisuus
 
 ### Sovelluksen käynnistyessä
-- käyttäjä voi aloittaa peliin
+- käyttäjä näkee lyhyen ohjeen peliin
+- käyttäjä voi aloittaa pelin
 
 ### Pelin aikana
 - käyttäjä voi liikuttaa lasertykkiä vasemmalle tai oikealle
@@ -25,12 +26,13 @@ Viholliset liikkuvat rivistönä edestakaisin ruudun vasemman ja oikean reunan v
 - käyttäjä voi pelata kunnes avaruusoliot saavuttavat ruudun alalaidan, elämät loppuvat tai kaikki avaruusoliot on tuhottu
 
 ### Pelin päätyttyä
-- käyttäjä näkee ilmoituksen pelin päättymisestä ja pelin aikana kertyneet pisteet
+- pelianimaatio pysähtyy ja käyttäjä näkee pelin aikana kertyneet pisteet sekä ilmoituksen pelin päättymisestä
 - jos hiscore ylitettiin, tallennetaan uusi hiscore
 - käyttäjä voi palata aloitusnäkymään
 
 
 ## Jatkokehitysideoita
+- hiscoren näyttäminen aloitusnäkymässä
 - suojakilvet jotka pysättävät ammukset mutta tuhoutuvat vähitellen osumista
 - vihollisten yläpuolelle ilmestyy välillä ufo, jonka ampumisesta saa lisäpisteitä
 - vihollisten liike nopeutuu niiden määrän pienentyessä
