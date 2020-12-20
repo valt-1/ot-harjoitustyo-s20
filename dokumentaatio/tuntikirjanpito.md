@@ -32,7 +32,8 @@
 |       | 2,5 | dokumentaatio
 |       | 0,5 | refaktorointi
 |       | 1   | avaruusolioiden ammusten toteutus
-| 20.12.| 1   | testaus
+| 20.12.| 1,5 | testaus
 |       | 0,5 | bugikorjaus
-|       | 1,5 | dokumentaation päivitys
-| yht.  | 35  |  |
+|       | 0,5 | pelin konfiguraatioden lisäykset
+|       | 2   | dokumentaation päivitys
+| yht.  | 36,5  |  |
