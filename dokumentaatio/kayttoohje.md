@@ -1,6 +1,6 @@
 # Käyttöohje
 
-Lataa tiedosto SpaceInvaders.jar
+Lataa tiedosto _SpaceInvaders.jar_
 
 ## Konfigurointi
 
