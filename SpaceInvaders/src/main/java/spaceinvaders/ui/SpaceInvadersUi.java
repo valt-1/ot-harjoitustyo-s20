@@ -55,7 +55,7 @@ public class SpaceInvadersUi extends Application {
     public void start(Stage stage) {
         if (exceptionInInit) {
             Alert alert = new Alert(AlertType.ERROR);
-            alert.setContentText("Virhe ohjelman alustuksessa.");
+            alert.setContentText("Error in initializing program");
             alert.showAndWait();
             Platform.exit();
             return;
@@ -187,7 +187,7 @@ public class SpaceInvadersUi extends Application {
                 game.saveHiScore();
             } catch (Exception ex) {
                 Alert alert = new Alert(AlertType.ERROR);
-                alert.setContentText("Virhe pisteiden tallennuksessa");
+                alert.setContentText("Error in saving hiscore");
                 alert.showAndWait();
             }
             stage.setScene(startScene);
