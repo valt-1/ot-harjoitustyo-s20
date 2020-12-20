@@ -3,6 +3,7 @@ package spaceinvaders.logics;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 import javafx.scene.shape.Shape;
 import spaceinvaders.dao.HiScoreDao;
 import spaceinvaders.domain.Alien;
@@ -18,15 +19,17 @@ public class Game {
 
     private final double size;
     private int score;
+    private int lives;
     private int hiScore;
     private boolean over;
     private boolean won;
-
     private final LaserGun laserGun;
     private int alienDirection;
     private double speed;
     private List<Alien> aliens;
     private Shot gunShot;
+    private Shot alienShot;
+    private long alienShotTimer;
     private List<GameCharacter> removed;
 
     /**
@@ -40,6 +43,7 @@ public class Game {
         this.hiScoreDao = hiScoreDao;
         this.size = size;
         this.score = 0;
+        this.lives = 3;
         this.hiScore = this.hiScoreDao.getHiScore();
         this.over = false;
         this.won = false;
@@ -60,6 +64,8 @@ public class Game {
         }
 
         this.gunShot = null;
+        this.alienShot = null;
+        this.alienShotTimer = 0;
         this.removed = new ArrayList();
     }
 
@@ -69,6 +75,10 @@ public class Game {
 
     public int getScore() {
         return score;
+    }
+
+    public int getLives() {
+        return lives;
     }
 
     public int getHiScore() {
@@ -99,6 +109,10 @@ public class Game {
         this.gunShot = gunShot;
     }
 
+    public void setAlienShot(Shot alienShot) {
+        this.alienShot = alienShot;
+    }
+
     /**
      * Hakee kaikkia pelissä olevia hahmoja vastaavat Shape-oliot
      * graafista käyttöliittymää varten.
@@ -115,6 +129,10 @@ public class Game {
 
         if (gunShot != null) {
             aliveShapes.add(gunShot.getShape());
+        }
+
+        if (alienShot != null) {
+            aliveShapes.add(alienShot.getShape());
         }
 
         return aliveShapes;
@@ -167,12 +185,18 @@ public class Game {
     }
 
     /**
-     * Päivittää pelitilanteen. Siirtää pelihahmoja joiden liiikettä
+     * Päivittää pelitilanteen. Siirtää pelihahmoja joiden liikettä
      * pelaaja ei itse ohjaile (avaruusoliot ja ammukset) ja poistaa
      * kuolleet hahmot pelistä.
      */
     public void update() {
+        alienShotTimer++;
+        if (alienShot == null && alienShotTimer > 300) {
+            randomAlienShoots();
+            alienShotTimer = 0;
+        }
         moveGunShot();
+        moveAlienShot();
         moveAliens();
         removeDead();
 
@@ -183,6 +207,14 @@ public class Game {
         if (aliens.isEmpty()) {
             won = true;
         }
+    }
+
+    private void randomAlienShoots() {
+        Random random = new Random();
+        int index = random.nextInt(aliens.size());
+        double x = aliens.get(index).getLocationX();
+        double y = aliens.get(index).getLocationY();
+        alienShot = new Shot(x, y);
     }
 
     private void moveGunShot() {
@@ -205,6 +237,30 @@ public class Game {
                 gunShot.setAlive(false);
                 score += 10;
             }
+        }
+    }
+
+    private void moveAlienShot() {
+        if (alienShot == null) {
+            return;
+        }
+
+        if (alienShot.getLocationY() > size) {
+            alienShot.setAlive(false);
+        }
+
+        alienShot.moveDown();
+        checkIfLaserGunHit();
+    }
+
+    private void checkIfLaserGunHit() {
+        if (alienShot.hits(laserGun)) {
+            lives -= 1;
+            alienShot.setAlive(false);
+        }
+
+        if (lives < 1) {
+            over = true;
         }
     }
 
@@ -243,6 +299,11 @@ public class Game {
         if (gunShot != null && !gunShot.isAlive()) {
             removed.add(gunShot);
             gunShot = null;
+        }
+
+        if (alienShot != null && !alienShot.isAlive()) {
+            removed.add(alienShot);
+            alienShot = null;
         }
 
         Iterator<Alien> alienIterator = aliens.iterator();

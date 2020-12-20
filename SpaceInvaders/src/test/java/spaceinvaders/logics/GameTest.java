@@ -136,6 +136,16 @@ public class GameTest {
     }
 
     @Test
+    public void livesDecrementedIfShotHitsLaserGun() {
+        int lives = game.getLives();
+        double x = game.getLaserGunShape().getTranslateX();
+        double y = game.getLaserGunShape().getTranslateY();
+        game.setAlienShot(new Shot(x, y));
+        game.update();
+        assertEquals(lives - 1, game.getLives(), delta);
+    }
+
+    @Test
     public void alienRemovedWhenHit() {
         Alien alien = new Alien(20, 20);
         game.getAliens().add(alien);

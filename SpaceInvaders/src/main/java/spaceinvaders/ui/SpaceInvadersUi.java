@@ -128,6 +128,7 @@ public class SpaceInvadersUi extends Application {
                     }
 
                     score.setText("Score: " + game.getScore());
+                    lives.setText("Lives: " + game.getLives());
 
                     if (pressedKeys.getOrDefault(KeyCode.LEFT, Boolean.FALSE)) {
                         game.moveGunLeft();
