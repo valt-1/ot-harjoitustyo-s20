@@ -28,7 +28,7 @@
 | 18.12.| 1,5 | testit
 |       | 0,5 | dokumentaatio
 |       | 0,5 | bugikorjaus
-| 19.12.| 0,5 | testit
+| 19.12.| 1   | testit
 |       | 2,5 | dokumentaatio
 |       | 0,5 | refaktorointi
-| yht.  | 30,5  |  |
+| yht.  | 31  |  |
