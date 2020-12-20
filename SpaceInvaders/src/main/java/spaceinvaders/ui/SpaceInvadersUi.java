@@ -30,6 +30,7 @@ public class SpaceInvadersUi extends Application {
     private double speed;
     private Game game;
     private boolean exceptionInInit = false;
+    private AnimationTimer timer;
 
     @Override
     public void init() {
@@ -121,7 +122,7 @@ public class SpaceInvadersUi extends Application {
             gameScene.setOnKeyReleased(event
                     -> pressedKeys.put(event.getCode(), Boolean.FALSE));
 
-            new AnimationTimer() {
+            timer = new AnimationTimer() {
 
                 private void redrawGame() {
                     gamePane.getChildren().removeAll(game.getRemovedShapes());
@@ -147,10 +148,10 @@ public class SpaceInvadersUi extends Application {
                     score.setText("Score: " + game.getScore());
                     String livesText = "Lives: " + game.getLives();
                     if (game.getLives() == 2) {
-                        livesText += " OUCH!!";
+                        livesText += " - OUCH!!";
                     }
                     if (game.getLives() == 1) {
-                        livesText += " WATCH OUT!!!";
+                        livesText += " - WATCH OUT!!!";
                     }
                     lives.setText(livesText);
 
@@ -168,7 +169,8 @@ public class SpaceInvadersUi extends Application {
 
                     redrawGame();
                 }
-            }.start();
+            };
+            timer.start();
         });
         startPane.getChildren().add(start);
 
@@ -178,6 +180,7 @@ public class SpaceInvadersUi extends Application {
         quitGame.setTranslateX(size - 100);
         quitGame.setFocusTraversable(false);
         quitGame.setOnMouseClicked(e -> {
+            timer.stop();
             try {
                 game.saveHiScore();
             } catch (Exception ex) {
