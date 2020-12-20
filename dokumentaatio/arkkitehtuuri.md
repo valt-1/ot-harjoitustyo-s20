@@ -40,3 +40,7 @@ Käyttäjän painaessa oikeaa nuolinäppäintä, kutsuu käyttöliittymä pelilo
 Käyttäjän panaessa välilyöntinäppäintä, kutsuu käyttöliittymä pelilogiikan _Game_ metodia _shoot_. _Game_ hakee lasertykin sijainnin kutsumalla _LaserGunin_ metodia _getLocationX_ ja luo oikeasta sijainnista lähtevän ammuksen välittämällä _LaserGunin_ palauttaman arvon _Shot_-luokan konstruktorille.
 
 <img src="https://raw.githubusercontent.com/behindthegroove/ot-harjoitustyo-s20/master/dokumentaatio/kuvat/sekvenssikaavio3.png">
+
+## Ohjelman rakenteeseen jääneet heikkoudet
+
+Käyttöliittymän rakentava koodi jäi rakenteeltaan turhan sekavaksi, ja sitä kannattaisi jakaa useampiin metodeihin.
