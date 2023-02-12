@@ -1,5 +1,7 @@
 # Space Invaders
 
+*(Study project for a software engineering course at the University of Helsinki. This repository is not maintained anymore.)*
+
 Sovellus on versio Space Invaders -pelistä, ja sen on tehty harjoitustyönä Helsingin yliopiston Tietojenkäsittelytieteen osaston kurssilla Ohjelmistotekniikka.
 
 Pelin toiminnalisuus selviää [vaatimusmäärittelystä](dokumentaatio/vaatimusmaarittely.md). Ohjeet sovelluksen käyttöön [täällä](dokumentaatio/kayttoohje.md).
